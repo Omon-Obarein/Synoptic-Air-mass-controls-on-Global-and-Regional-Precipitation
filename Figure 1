@@ -1,0 +1,22 @@
+
+*Figure 1: (a) Eta Correlation of GWTC-2 Air masses and Total Precipitation (1979 – 2023). Only statistically significant grid points are mapped*
+
+m = gwtcx2; % gwtcx2 is the 11 weather types/ air masses from 1979 to 2023 from the whole global (size = 16436 x 1038240)
+oldValues = [11, 12, 13, 21, 22, 23, 31, 32, 33, 72, 73]; % et
+newValues = [1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11];
+
+for i = 1:length(oldValues)
+    m(m == oldValues(i)) = newValues(i);
+end
+
+%% ETA for daily precipitation
+
+% precip = single(precip);
+ratio = zeros(1, size(m, 2));
+pval = zeros(1,size(m,2));
+parfor i = 1:size(m,2)
+[ratio(1,i), pval(1,i)] = nlcorr(m(:,i), precip(:,i));
+end
+
+save('C:\Users\oobarein\Desktop\Dissertation\Eta_corr_output\eta_corr_pre.mat', 'ratio', 'pval');
+clear ratio pval 
