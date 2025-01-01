@@ -1,1 +1,195 @@
 
+Figure A3: Re-scaled Relative contribution of GWTC-2 air masses to total precipitation. 
+
+make_it_tight = true;
+subplot = @(m,n,p) subtightplot(m, n, p, [0.005 0.01], [0.1 0.1], [0.01 1]);
+if ~make_it_tight, clear subplot; end
+
+% cm = pedflue(9);
+cm = flipud(pink(9));
+
+A = relcon_hc;
+ A(A <= 0.2) = -4;
+ A(A > 0.2 & A <= 0.4) = -3;
+  A(A > 0.4 & A <= 0.6) = -2;
+ A(A > 0.6 & A <= 0.8) = -1;
+ A(A > 0.8 & A <= 1.5) = 0;
+A(A > 1.5 & A <= 2) = 1;
+A(A > 2 & A <= 4) = 2;
+A(A > 4 & A <= 6) = 3;
+A(A > 6 ) = 4;
+subtightplot(4,3,1)
+Mapper(A, lats, lons, 'mask', 'none', 'colors', cm, 'title','HC', 'centerT', 'zero', 'subplot',[-4 4],'colorbar1',0);
+title('HC', 'FontSize', 14);
+%
+B = relcon_h;
+ B(B <= 0.2) = -4;
+ B(B > 0.2 & B <= 0.4) = -3;
+  B(B > 0.4 & B <= 0.6) = -2;
+ B(B > 0.6 & B <= 0.8) = -1;
+ B(B > 0.8 & B <= 1.5) = 0;
+B(B > 1.5 & B <= 2) = 1;
+B(B > 2 & B <= 4) = 2;
+B(B > 4 & B <= 6) = 3;
+B(B > 6 ) = 4;
+subtightplot(4,3,2)
+Mapper(B, lats, lons, 'mask', 'none', 'colors', cm, 'title','H', 'centerT', 'zero', 'subplot',[-4 4],'colorbar1',1);
+title('H', 'FontSize', 14);
+
+% C = relcon_hw;
+%  C(C <= 0.2) = -4;
+%  C(C > 0.2 & C <= 0.4) = -3;
+%   C(C > 0.4 & C <= 0.6) = -2;
+%  C(C > 0.6 & C <= 0.8) = -1;
+%  C(C > 0.8 & C <= 1.5) = 0;
+% C(C > 1.5 & C <= 2) = 1;
+% C(C > 2 & C <= 4) = 2;
+% C(C > 4 & C <= 6) = 3;
+% C(C > 6 ) = 4;
+% subtightplot(4,3,3)
+% Mapper(C, lats, lons, 'mask', 'none', 'colors', cm, 'title','HW', 'centerT', 'zero', 'subplot',[-4 4],'colorbar1',0);
+% title('HW', 'FontSize', 14);
+% 
+% 
+% D = relcon_c;
+%  D(D <= 0.2) = -4;
+%  D(D > 0.2 & D <= 0.4) = -3;
+%   D(D > 0.4 & D <= 0.6) = -2;
+%  D(D > 0.6 & D <= 0.8) = -1;
+%  D(D > 0.8 & D <= 1.5) = 0;
+% D(D > 1.5 & D <= 2) = 1;
+% D(D > 2 & D <= 4) = 2;
+% D(D > 4 & D <= 6) = 3;
+% D(D > 6 ) = 4;
+% subtightplot(4,3,4)
+% Mapper(D, lats, lons, 'mask', 'none', 'colors', cm, 'title','C', 'centerT', 'zero', 'subplot',[-4 4],'colorbar1',0);
+% title('C', 'FontSize', 14);
+% 
+% E = relcon_s;
+%  E(E <= 0.2) = -4;
+%  E(E > 0.2 & E <= 0.4) = -3;
+%   E(E > 0.4 & E <= 0.6) = -2;
+%  E(E > 0.6 & E <= 0.8) = -1;
+%  E(E > 0.8 & E <= 1.5) = 0;
+% E(E > 1.5 & E <= 2) = 1;
+% E(E > 2 & E <= 4) = 2;
+% E(E > 4 & E <= 6) = 3;
+% E(E > 6 ) = 4;
+% subtightplot(4,3,5)
+% Mapper(E, lats, lons, 'mask', 'none', 'colors', cm, 'title','S', 'centerT', 'zero', 'subplot',[-4 4],'colorbar1',0);
+% title('S', 'FontSize', 14);
+% 
+% F = relcon_w;
+%  F(F <= 0.2) = -4;
+%  F(F > 0.2 & F <= 0.4) = -3;
+%   F(F > 0.4 & F <= 0.6) = -2;
+%  F(F > 0.6 & F <= 0.8) = -1;
+%  F(F > 0.8 & F <= 1.5) = 0;
+% F(F > 1.5 & F <= 2) = 1;
+% F(F > 2 & F <= 4) = 2;
+% F(F > 4 & F <= 6) = 3;
+% F(F > 6 ) = 4;
+% subtightplot(4,3,6)
+% Mapper(F, lats, lons, 'mask', 'none', 'colors', cm, 'title','W', 'centerT', 'zero', 'subplot',[-4 4],'colorbar1',0);
+% title('W', 'FontSize', 14);
+% 
+% G = relcon_dc;
+%  G(G <= 0.2) = -4;
+%  G(G > 0.2 & G <= 0.4) = -3;
+%   G(G > 0.4 & G <= 0.6) = -2;
+%  G(G > 0.6 & G <= 0.8) = -1;
+%  G(G > 0.8 & G <= 1.5) = 0;
+% G(G > 1.5 & G <= 2) = 1;
+% G(G > 2 & G <= 4) = 2;
+% G(G > 4 & G <= 6) = 3;
+% G(G > 6 ) = 4;
+% subtightplot(4,3,7)
+% Mapper(G, lats, lons, 'mask', 'none', 'colors', cm, 'title','DC', 'centerT', 'zero', 'subplot',[-4 4],'colorbar1',0);
+% title('DC', 'FontSize', 14);
+% 
+% 
+% H = relcon_d;
+%  H(H <= 0.2) = -4;
+%  H(H > 0.2 & H <= 0.4) = -3;
+%   H(H > 0.4 & H <= 0.6) = -2;
+%  H(H > 0.6 & H <= 0.8) = -1;
+%  H(H > 0.8 & H <= 1.5) = 0;
+% H(H > 1.5 & H <= 2) = 1;
+% H(H > 2 & H <= 4) = 2;
+% H(H > 4 & H <= 6) = 3;
+% H(H > 6 ) = 4;
+% subtightplot(4,3,8)
+% Mapper(H, lats, lons, 'mask', 'none', 'colors', cm, 'title','D', 'centerT', 'zero', 'subplot',[-4 4],'colorbar1',0);
+% title('D', 'FontSize', 14);
+% 
+% 
+% 
+% I = relcon_dw;
+%  I(I <= 0.2) = -4;
+%  I(I > 0.2 & I <= 0.4) = -3;
+%   I(I > 0.4 & I <= 0.6) = -2;
+%  I(I > 0.6 & I <= 0.8) = -1;
+%  I(I > 0.8 & I <= 1.5) = 0;
+% I(I > 1.5 & I <= 2) = 1;
+% I(I > 2 & I <= 4) = 2;
+% I(I > 4 & I <= 6) = 3;
+% I(I > 6 ) = 4;
+% subtightplot(4,3,9)
+% Mapper(I, lats, lons, 'mask', 'none', 'colors', cm, 'title','DW', 'centerT', 'zero', 'subplot',[-4 4],'colorbar1',0);
+% title('DW', 'FontSize', 14);
+% 
+% 
+% J = relcon_cfp;
+%  J(J <= 0.2) = -4;
+%  J(J > 0.2 & J <= 0.4) = -3;
+%   J(J > 0.4 & J <= 0.6) = -2;
+%  J(J > 0.6 & J <= 0.8) = -1;
+%  J(J > 0.8 & J <= 1.5) = 0;
+% J(J > 1.5 & J <= 2) = 1;
+% J(J > 2 & J <= 4) = 2;
+% J(J > 4 & J <= 6) = 3;
+% J(J > 6 ) = 4;
+% subtightplot(4,3,11)
+% Mapper(J, lats, lons, 'mask', 'none', 'colors', cm, 'title','CFP', 'centerT', 'zero', 'subplot',[-4 4],'colorbar1',0);
+% title('CFP', 'FontSize', 14);
+% 
+% 
+% 
+% K = relcon_wfp;
+%  K(K <= 0.2) = -4;
+%  K(K > 0.2 & K <= 0.4) = -3;
+%   K(K > 0.4 & K <= 0.6) = -2;
+%  K(K > 0.6 & K <= 0.8) = -1;
+%  K(K > 0.8 & K <= 1.5) = 0;
+% K(K > 1.5 & K <= 2) = 1;
+% K(K > 2 & K <= 4) = 2;
+% K(K > 4 & K <= 6) = 3;
+% K(K > 6 ) = 4;
+% subtightplot(4,3,12)
+% Mapper(K, lats, lons, 'mask', 'none', 'colors', cm, 'title','WFP', 'centerT', 'zero', 'subplot',[-4 4],'colorbar1',1);
+% title('WFP', 'FontSize', 14);
+
+
+cb = colorbar('Location', 'southoutside', 'Ticks', [-4 -3 -2 -1 0 1 2 3 4]);
+ cb.FontSize = 14;
+ cb.TickLabels = {'0.2', '0.4', '0.6', '0.8', '1', '2', '4', '6', '8'};
+ %% Save
+cm = pedflue(9);
+A = relcon_hc;
+ A(A <= 0.2) = -4;
+ A(A > 0.2 & A <= 0.4) = -3;
+  A(A > 0.4 & A <= 0.6) = -2;
+ A(A > 0.6 & A <= 0.8) = -1;
+ A(A > 0.8 & A <= 1.5) = 0;
+A(A > 1.5 & A <= 2) = 1;
+A(A > 2 & A <= 4) = 2;
+A(A > 4 & A <= 6) = 3;
+A(A > 6 ) = 4;
+
+subtightplot(4,3,1)
+Mapper(A, lats, lons, 'mask', 'none', 'colors', cm, 'title','HC', 'centerT', 'zero');
+title('HC', 'FontSize', 15);
+cb = colorbar('Location', 'southoutside', 'Ticks', [-4 -3 -2 -1 0 1 2 3 4]);
+ cb.FontSize = 13;
+ cb.TickLabels = {'0.2', '0.4', '0.6', '0.8', '1', '2', '4', '6', '8'};
+
