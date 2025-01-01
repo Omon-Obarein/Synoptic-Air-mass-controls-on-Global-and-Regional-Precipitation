@@ -1,0 +1,180 @@
+Figure 3: Eta Correlation of GWTC-2 Air masses and total Precipitation in Köppen-Geiger global climate regions for (a) land, and (b) ocean (1979 – 2023). Note the slight difference in scale.
+
+%% regional gwtc
+% cold_wt  = gwtcx2(:, cold == 1);
+dry_wt  = gwtcx2(:, dry == 1);
+high_wt  = gwtcx2(:, high == 1);
+mild_wt  = gwtcx2(:, mild == 1);
+med_wt  = gwtcx2(:, med == 1);
+hstrop_wt  = gwtcx2(:, hstrop == 1);
+trop_wt  = gwtcx2(:, trop == 1);
+mwc_wt  = gwtcx2(:, mwc == 1);
+polar_wt = gwtcx2(:, polar == 1);
+
+%% ETA CORRELATION FOR ALL NINE REGIONS
+%% COLD
+
+ratio_cold = zeros(1, size(cold_wt,2));
+pval_cold = zeros(1,size(cold_wt,2));
+parfor i = 1:size(cold_wt,2)
+[ratio_cold(1,i),pval_cold(1,i)] = nlcorr(cold_wt(:,i),cold_totp(:,i));
+end
+save('C:\Users\oobarein\Desktop\Dissertation\Eta_corr_output\region\tp\ocean\cold_reg.mat', 'ratio_cold', 'pval_cold');
+clear ratio_cold pval_cold m
+
+ % TROP
+ratio_trop = zeros(1,size(trop_wt,2));
+pval_trop = zeros(1,size(trop_wt,2));
+parfor i = 1:size(trop_wt,2)
+[ratio_trop(1,i),pval_trop(1,i)] = nlcorr(trop_wt(:,i),trop_totp(:,i));
+end
+save('C:\Users\oobarein\Desktop\Dissertation\Eta_corr_output\region\tp\ocean\trop_reg.mat', 'ratio_trop', 'pval_trop');
+clear ratio_trop pval_trop m
+ 
+% DRY
+ratio_dry = zeros(1,size(dry_wt,2));
+pval_dry = zeros(1,size(dry_wt,2));
+parfor i = 1:size(dry_wt,2)
+[ratio_dry(1,i),pval_dry(1,i)] = nlcorr(dry_wt(:,i),dry_totp(:,i));
+end
+save('C:\Users\oobarein\Desktop\Dissertation\Eta_corr_output\region\tp\ocean\dry_reg.mat', 'ratio_dry', 'pval_dry');
+clear ratio_dry pval_dry m
+ 
+% MILD
+ratio_mild = zeros(1,size(mild_wt,2));
+pval_mild = zeros(1,size(mild_wt,2));
+parfor i = 1:size(mild_wt,2)
+[ratio_mild(1,i),pval_mild(1,i)] = nlcorr(mild_wt(:,i),mild_totp(:,i));
+end
+save('C:\Users\oobarein\Desktop\Dissertation\Eta_corr_output\region\tp\ocean\mild_reg.mat', 'ratio_mild', 'pval_mild');
+clear ratio_mild pval_mild m
+
+% POLAR
+ratio_polar = zeros(1,size(polar_wt,2));
+pval_polar = zeros(1,size(polar_wt,2));
+parfor i = 1:size(polar_wt,2)
+[ratio_polar(1,i),pval_polar(1,i)] = nlcorr(polar_wt(:,i),polar_totp(:,i));
+end
+save('C:\Users\oobarein\Desktop\Dissertation\Eta_corr_output\region\tp\ocean\polar_reg.mat', 'ratio_polar', 'pval_polar');
+clear ratio_polar pval_polar m
+ 
+% HIGH
+ratio_high = zeros(1,size(high_wt,2));
+pval_high = zeros(1,size(high_wt,2));
+parfor i = 1:size(high_wt,2)
+[ratio_high(1,i),pval_high(1,i)] = nlcorr(high_wt(:,i),high_totp(:,i));
+end
+save('C:\Users\oobarein\Desktop\Dissertation\Eta_corr_output\region\tp\ocean\high_reg.mat', 'ratio_high', 'pval_high');
+clear ratio_high pval_high m
+ 
+% HSTROP
+ratio_hstrop = zeros(1,size(hstrop_wt,2));
+pval_hstrop = zeros(1,size(hstrop_wt,2));
+parfor i = 1:size(hstrop_wt,2)
+[ratio_hstrop(1,i),pval_hstrop(1,i)] = nlcorr(hstrop_wt(:,i),hstrop_totp(:,i));
+end
+save('C:\Users\oobarein\Desktop\Dissertation\Eta_corr_output\region\tp\ocean\hstrop_reg.mat', 'ratio_hstrop', 'pval_hstrop');
+clear ratio_hstrop pval_hstrop m
+
+% MED
+ratio_med = zeros(1,size(med_wt,2));
+pval_med = zeros(1,size(med_wt,2));
+parfor i = 1:size(med_wt,2)
+[ratio_med(1,i),pval_med(1,i)] = nlcorr(med_wt(:,i),med_totp(:,i));
+end
+save('C:\Users\oobarein\Desktop\Dissertation\Eta_corr_output\region\tp\ocean\med_reg.mat', 'ratio_med', 'pval_med');
+clear ratio_med pval_med m
+ 
+% MWC
+ratio_mwc = zeros(1,size(mwc_wt,2));
+pval_mwc = zeros(1,size(mwc_wt,2));
+parfor i = 1:size(mwc_wt,2)
+[ratio_mwc(1,i),pval_mwc(1,i)] = nlcorr(mwc_wt(:,i),mwc_totp(:,i));
+end
+save('C:\Users\oobarein\Desktop\Dissertation\Eta_corr_output\region\tp\ocean\mwc_reg.mat', 'ratio_mwc', 'pval_mwc');
+clear ratio_mwc pval_mwc m
+
+
+################################################# LAND VS OCEAN ###########################################################
+
+%%
+% precip_land = new_precip;
+% precip_ocean = new_precip;
+
+% precip_land(:, ~land3) = NaN;
+% precip_ocean(:, land3) = NaN;
+%%
+
+gwtc2_land = gwtcx2;
+gwtc2_ocean = gwtcx2;
+
+gwtc2_land = single(gwtc2_land);
+gwtc2_ocean = single(gwtc2_ocean);
+
+
+gwtc2_land(:, ~land3) = NaN;
+gwtc2_ocean(:, land3) = NaN;
+
+
+
+
+%%
+cold_wt  = gwtc2_land(:, cold == 1);
+dry_wt  = gwtc2_land(:, dry == 1);
+high_wt  = gwtc2_land(:, high == 1);
+mild_wt  = gwtc2_land(:, mild == 1);
+med_wt  = gwtc2_land(:, med == 1);
+hstrop_wt  = gwtc2_land(:, hstrop == 1);
+trop_wt  = gwtc2_land(:, trop == 1);
+mwc_wt  = gwtc2_land(:, mwc == 1);
+polar_wt = gwtc2_land(:, polar == 1);
+
+save('C:\Users\oobarein\Desktop\Dissertation\eta_corr_data\region\land_reg_wt\reg_wt.mat', 'cold_wt','dry_wt','high_wt','mild_wt', 'polar_wt', 'trop_wt', 'hstrop_wt','med_wt','mwc_wt','-v7.3');
+ clear cold_wt dry_wt high_wt mild_wt polar_wt trop_wt hstrop_wt med_wt mwc_wt 
+
+
+%
+cold_wt  = gwtc2_ocean(:, cold == 1);
+dry_wt  = gwtc2_ocean(:, dry == 1);
+high_wt  = gwtc2_ocean(:, high == 1);
+mild_wt  = gwtc2_ocean(:, mild == 1);
+med_wt  = gwtc2_ocean(:, med == 1);
+hstrop_wt  = gwtc2_ocean(:, hstrop == 1);
+trop_wt  = gwtc2_ocean(:, trop == 1);
+mwc_wt  = gwtc2_ocean(:, mwc == 1);
+polar_wt = gwtc2_ocean(:, polar == 1);
+
+save('C:\Users\oobarein\Desktop\Dissertation\eta_corr_data\region\ocean_reg_wt\reg_wt.mat', 'cold_wt','dry_wt','high_wt','mild_wt', 'polar_wt', 'trop_wt', 'hstrop_wt','med_wt','mwc_wt','-v7.3');
+ clear cold_wt dry_wt high_wt mild_wt polar_wt trop_wt hstrop_wt med_wt mwc_wt 
+
+%%
+cold_totp  = precip_land(:, cold == 1);
+dry_totp = precip_land(:, dry == 1);
+high_totp = precip_land(:, high == 1);
+mild_totp = precip_land(:, mild == 1);
+polar_totp = precip_land(:, polar == 1);
+trop_totp = precip_land(:, trop == 1);
+hstrop_totp  = precip_land(:, hstrop == 1);
+med_totp = precip_land(:, med == 1);
+mwc_totp = precip_land(:, mwc == 1);
+
+save('C:\Users\oobarein\Desktop\Dissertation\eta_corr_data\region\land_tp\reg_totp.mat', 'cold_totp','dry_totp','high_totp','mild_totp', 'polar_totp', 'trop_totp', 'hstrop_totp','med_totp','mwc_totp','-v7.3');
+ clear precip cold_totp dry_totp high_totp mild_totp polar_totp trop_totp hstrop_totp med_totp mwc_totp 
+
+%
+
+cold_totp  = precip_ocean(:, cold == 1);
+dry_totp = precip_ocean(:, dry == 1);
+high_totp = precip_ocean(:, high == 1);
+mild_totp = precip_ocean(:, mild == 1);
+polar_totp = precip_ocean(:, polar == 1);
+trop_totp = precip_ocean(:, trop == 1);
+hstrop_totp  = precip_ocean(:, hstrop == 1);
+med_totp = precip_ocean(:, med == 1);
+mwc_totp = precip_ocean(:, mwc == 1);
+
+
+
+ save('C:\Users\oobarein\Desktop\Dissertation\eta_corr_data\region\ocean_tp\reg_totp.mat', 'cold_totp','dry_totp','high_totp','mild_totp', 'polar_totp', 'trop_totp', 'hstrop_totp','med_totp','mwc_totp','-v7.3');
+ clear precip cold_totp dry_totp high_totp mild_totp polar_totp trop_totp hstrop_totp med_totp mwc_totp 
+ %%
