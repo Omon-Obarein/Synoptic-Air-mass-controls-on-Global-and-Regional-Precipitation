@@ -1,0 +1,44 @@
+Figure 2: Eta Correlation of GWTC-2 Air masses and seasonal Precipitation (1979 – 2023). Only statistically significant grid points are mapped.
+
+%% seasonal gwtc
+wint_wt  = gwtcx2(winter_time == 1, :);
+spr_wt = gwtcx2(spring_time == 1, :);
+summ_wt = gwtcx2(summer_time == 1, :);
+fall_wt = gwtcx2(fall_time == 1, :);
+
+
+%% WINTER
+% ratio_wint = zeros(1,size(wint_wt,2));
+% pval_wint = zeros(1,size(wint_wt,2));
+% parfor i = 1:size(m,2)
+% [ratio_wint(1,i),pval_wint(1,i)] = nlcorr(m(:,i),wint_totp(:,i));
+% end
+% save('C:\Users\oobarein\Desktop\Dissertation\Eta_corr_output\season\tp\wint_seas.mat', 'ratio_wint', 'pval_wint');
+% clear ratio_wint pval_wint m
+
+%% SPRING
+% ratio_spr = zeros(1,size(spr_wt,2));
+% pval_spr = zeros(1,size(spr_wt,2));
+% parfor i = 1:size(m,2)
+% [ratio_spr(1,i),pval_spr(1,i)] = nlcorr(m(:,i),spr_totp(:,i));
+% end
+% save('C:\Users\oobarein\Desktop\Dissertation\Eta_corr_output\season\tp\spr_seas.mat', 'ratio_spr', 'pval_spr');
+% clear ratio_spr pval_spr m
+
+%% SUMMER
+% ratio_summ = zeros(1,size(summ_wt,2));
+% pval_summ = zeros(1,size(summ_wt,2));
+% parfor i = 1:size(m,2)
+% [ratio_summ(1,i),pval_summ(1,i)] = nlcorr(m(:,i),summ_totp(:,i));
+% end
+% save('C:\Users\oobarein\Desktop\Dissertation\Eta_corr_output\season\tp\summ_seas.mat', 'ratio_summ', 'pval_summ');
+% clear ratio_summ pval_summ m
+
+%% FALL
+ratio_fall = zeros(1,size(fall_wt,2));
+pval_fall = zeros(1,size(fall_wt,2));
+parfor i = 1:size(m,2)
+[ratio_fall(1,i),pval_fall(1,i)] = nlcorr(m(:,i),fall_totp(:,i));
+end
+save('C:\Users\oobarein\Desktop\Dissertation\Eta_corr_output\season\tp\fall_seas.mat', 'ratio_fall', 'pval_fall');
+clear ratio_fall pval_fall m
