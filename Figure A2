@@ -1,1 +1,803 @@
+Figure A2: Relative contribution of individual GWTC-2 AMs to daily precipitation in (a) Köppen climate regions, and (b) Seasons. \
+UNLIKE CORRELATION WHICH USES MONTHLY FREQUENCY OF GWTC-2 AND MONTHLY PRECIPITATION. 
+RELATIVE CORRELATION USES DAILY GWTC-2 AND DAILY PRECIPITATION
 
+
+
+%% to divide GWTC-2 binaries into four seasons
+% get seasonal days
+winter_time = (timedata(:, 2) == 12) | (timedata(:, 2) == 1) | (timedata(:, 2) == 2); % DJF days 
+spring_time = (timedata(:, 2) == 3) | (timedata(:, 2) == 4) | (timedata(:, 2) == 5); % MAM days
+summer_time = (timedata(:, 2) == 6) | (timedata(:, 2) == 7) | (timedata(:, 2) == 8); % JJA days
+fall_time = (timedata(:, 2) == 9) | (timedata(:, 2) == 10) | (timedata(:, 2) == 11); % SON days
+
+% get gwtc-2 corresponding to seasonal days (repeat for all gwtc-2)
+% WFP
+wint_gwtc_wfp  = gwtc_wfp(winter_time == 1, :);
+spr_gwtc_wfp = gwtc_wfp(spring_time == 1, :);
+summ_gwtc_wfp = gwtc_wfp(summer_time == 1, :);
+fall_gwtc_wfp = gwtc_wfp(fall_time == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\binaries\gwtc_wfp.mat', 'wint_gwtc_wfp','spr_gwtc_wfp','summ_gwtc_wfp','fall_gwtc_wfp','-v7.3');
+clear gwtc_wfp wint_gwtc_wfp spr_gwtc_wfp summ_gwtc_wfp fall_gwtc_wfp
+
+% W
+wint_gwtc_w  = gwtc_w(winter_time == 1, :);
+spr_gwtc_w = gwtc_w(spring_time == 1, :);
+summ_gwtc_w = gwtc_w(summer_time == 1, :);
+fall_gwtc_w = gwtc_w(fall_time == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\binaries\gwtc_w.mat', 'wint_gwtc_w','spr_gwtc_w','summ_gwtc_w','fall_gwtc_w','-v7.3');
+clear gwtc_w wint_gwtc_w spr_gwtc_w summ_gwtc_w fall_gwtc_w
+
+% S
+wint_gwtc_s  = gwtc_s(winter_time == 1, :);
+spr_gwtc_s = gwtc_s(spring_time == 1, :);
+summ_gwtc_s = gwtc_s(summer_time == 1, :);
+fall_gwtc_s = gwtc_s(fall_time == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\binaries\gwtc_s.mat', 'wint_gwtc_s','spr_gwtc_s','summ_gwtc_s','fall_gwtc_s','-v7.3');
+clear gwtc_s wint_gwtc_s spr_gwtc_s summ_gwtc_s fall_gwtc_s
+
+% HW
+wint_gwtc_hw  = gwtc_hw(winter_time == 1, :);
+spr_gwtc_hw = gwtc_hw(spring_time == 1, :);
+summ_gwtc_hw = gwtc_hw(summer_time == 1, :);
+fall_gwtc_hw = gwtc_hw(fall_time == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\binaries\gwtc_hw.mat', 'wint_gwtc_hw','spr_gwtc_hw','summ_gwtc_hw','fall_gwtc_hw','-v7.3');
+clear gwtc_hw wint_gwtc_hw spr_gwtc_hw summ_gwtc_hw fall_gwtc_hw
+
+% HC
+wint_gwtc_hc  = gwtc_hc(winter_time == 1, :);
+spr_gwtc_hc = gwtc_hc(spring_time == 1, :);
+summ_gwtc_hc = gwtc_hc(summer_time == 1, :);
+fall_gwtc_hc = gwtc_hc(fall_time == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\binaries\gwtc_hc.mat', 'wint_gwtc_hc','spr_gwtc_hc','summ_gwtc_hc','fall_gwtc_hc','-v7.3');
+clear gwtc_hc wint_gwtc_hc spr_gwtc_hc summ_gwtc_hc fall_gwtc_hc
+
+% H
+wint_gwtc_h  = gwtc_h(winter_time == 1, :);
+spr_gwtc_h = gwtc_h(spring_time == 1, :);
+summ_gwtc_h = gwtc_h(summer_time == 1, :);
+fall_gwtc_h = gwtc_h(fall_time == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\binaries\gwtc_h.mat', 'wint_gwtc_h','spr_gwtc_h','summ_gwtc_h','fall_gwtc_h','-v7.3');
+clear gwtc_h wint_gwtc_h spr_gwtc_h summ_gwtc_h fall_gwtc_h
+
+% DW
+wint_gwtc_dw  = gwtc_dw(winter_time == 1, :);
+spr_gwtc_dw = gwtc_dw(spring_time == 1, :);
+summ_gwtc_dw = gwtc_dw(summer_time == 1, :);
+fall_gwtc_dw = gwtc_dw(fall_time == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\binaries\gwtc_dw.mat', 'wint_gwtc_dw','spr_gwtc_dw','summ_gwtc_dw','fall_gwtc_dw','-v7.3');
+clear gwtc_dw wint_gwtc_dw spr_gwtc_dw summ_gwtc_dw fall_gwtc_dw
+
+% DC
+wint_gwtc_dc  = gwtc_dc(winter_time == 1, :);
+spr_gwtc_dc = gwtc_dc(spring_time == 1, :);
+summ_gwtc_dc = gwtc_dc(summer_time == 1, :);
+fall_gwtc_dc = gwtc_dc(fall_time == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\binaries\gwtc_dc.mat', 'wint_gwtc_dc','spr_gwtc_dc','summ_gwtc_dc','fall_gwtc_dc','-v7.3');
+clear gwtc_dc wint_gwtc_dc spr_gwtc_dc summ_gwtc_dc fall_gwtc_dc
+
+% D
+wint_gwtc_d  = gwtc_d(winter_time == 1, :);
+spr_gwtc_d = gwtc_d(spring_time == 1, :);
+summ_gwtc_d = gwtc_d(summer_time == 1, :);
+fall_gwtc_d = gwtc_d(fall_time == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\binaries\gwtc_d.mat', 'wint_gwtc_d','spr_gwtc_d','summ_gwtc_d','fall_gwtc_d','-v7.3');
+clear gwtc_d wint_gwtc_d spr_gwtc_d summ_gwtc_d fall_gwtc_d
+
+% CFP
+wint_gwtc_cfp  = gwtc_cfp(winter_time == 1, :);
+spr_gwtc_cfp = gwtc_cfp(spring_time == 1, :);
+summ_gwtc_cfp = gwtc_cfp(summer_time == 1, :);
+fall_gwtc_cfp = gwtc_cfp(fall_time == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\binaries\gwtc_cfp.mat', 'wint_gwtc_cfp','spr_gwtc_cfp','summ_gwtc_cfp','fall_gwtc_cfp','-v7.3');
+clear gwtc_cfp wint_gwtc_cfp spr_gwtc_cfp summ_gwtc_cfp fall_gwtc_cfp
+
+% C
+wint_gwtc_c  = gwtc_c(winter_time == 1, :);
+spr_gwtc_c = gwtc_c(spring_time == 1, :);
+summ_gwtc_c = gwtc_c(summer_time == 1, :);
+fall_gwtc_c = gwtc_c(fall_time == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\binaries\gwtc_c.mat', 'wint_gwtc_c','spr_gwtc_c','summ_gwtc_c','fall_gwtc_c','-v7.3');
+clear gwtc_c wint_gwtc_c spr_gwtc_c summ_gwtc_c fall_gwtc_c
+%% to divide GWTC-2 binaries into six climate regions
+% make regions 1-D
+cold = reshape(cold_temp_clim, [], 1);
+dry = reshape(dry_clim, [], 1);
+high = reshape(highland_clim, [], 1);
+mild = reshape(mild_temp_clim, [], 1);
+polar = reshape(polar_clim, [], 1);
+trop = reshape(tropical_clim, [], 1);
+hstrop = reshape(humid_subtropics, [], 1);
+mwc = reshape(marine_west_coast, [], 1);
+med = reshape(mediterranean, [], 1);
+
+%% get gwtc-2 corresponding to climate regions (repeat for all gwtc-2) 
+% WFP
+cold_gwtc_wfp  = gwtc_wfp(:, cold == 1);
+dry_gwtc_wfp = gwtc_wfp(:, dry == 1);
+high_gwtc_wfp = gwtc_wfp(:, high == 1);
+mild_gwtc_wfp = gwtc_wfp(:, mild == 1);
+polar_gwtc_wfp = gwtc_wfp(:, polar == 1);
+trop_gwtc_wfp = gwtc_wfp(:, trop == 1);
+hstrop_gwtc_wfp  = gwtc_wfp(:, hstrop == 1);
+med_gwtc_wfp = gwtc_wfp(:, med == 1);
+mwc_gwtc_wfp = gwtc_wfp(:, mwc == 1);
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\binaries\gwtc_wfp.mat', 'cold_gwtc_wfp','dry_gwtc_wfp','high_gwtc_wfp','mild_gwtc_wfp', 'polar_gwtc_wfp', 'trop_gwtc_wfp', 'hstrop_gwtc_wfp', 'med_gwtc_wfp', 'mwc_gwtc_wfp','-v7.3');
+ clear gwtc_wfp cold_gwtc_wfp dry_gwtc_wfp high_gwtc_wfp mild_gwtc_wfp polar_gwtc_wfp trop_gwtc_wfp hstrop_gwtc_wfp med_gwtc_wfp mwc_gwtc_wfp
+
+
+ % W
+cold_gwtc_w  = gwtc_w(:, cold == 1);
+dry_gwtc_w = gwtc_w(:, dry == 1);
+high_gwtc_w = gwtc_w(:, high == 1);
+mild_gwtc_w = gwtc_w(:, mild == 1);
+polar_gwtc_w = gwtc_w(:, polar == 1);
+trop_gwtc_w = gwtc_w(:, trop == 1);
+hstrop_gwtc_w  = gwtc_w(:, hstrop == 1);
+med_gwtc_w = gwtc_w(:, med == 1);
+mwc_gwtc_w = gwtc_w(:, mwc == 1);
+
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\binaries\gwtc_w.mat', 'cold_gwtc_w','dry_gwtc_w','high_gwtc_w','mild_gwtc_w', 'polar_gwtc_w', 'trop_gwtc_w', 'hstrop_gwtc_w','med_gwtc_w','mwc_gwtc_w', '-v7.3');
+ clear gwtc_w cold_gwtc_w dry_gwtc_w high_gwtc_w mild_gwtc_w polar_gwtc_w trop_gwtc_w hstrop_gwtc_w med_gwtc_w mwc_gwtc_w
+
+
+ % S
+cold_gwtc_s  = gwtc_s(:, cold == 1);
+dry_gwtc_s = gwtc_s(:, dry == 1);
+high_gwtc_s = gwtc_s(:, high == 1);
+mild_gwtc_s = gwtc_s(:, mild == 1);
+polar_gwtc_s = gwtc_s(:, polar == 1);
+trop_gwtc_s = gwtc_s(:, trop == 1);
+hstrop_gwtc_s  = gwtc_s(:, hstrop == 1);
+med_gwtc_s = gwtc_s(:, med == 1);
+mwc_gwtc_s = gwtc_s(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\binaries\gwtc_s.mat', 'cold_gwtc_s','dry_gwtc_s','high_gwtc_s','mild_gwtc_s', 'polar_gwtc_s', 'trop_gwtc_s', 'hstrop_gwtc_s','med_gwtc_s','mwc_gwtc_s', '-v7.3');
+ clear gwtc_s cold_gwtc_s dry_gwtc_s high_gwtc_s mild_gwtc_s polar_gwtc_s trop_gwtc_s hstrop_gwtc_s med_gwtc_s mwc_gwtc_s
+
+
+ % HW
+cold_gwtc_hw  = gwtc_hw(:, cold == 1);
+dry_gwtc_hw = gwtc_hw(:, dry == 1);
+high_gwtc_hw = gwtc_hw(:, high == 1);
+mild_gwtc_hw = gwtc_hw(:, mild == 1);
+polar_gwtc_hw = gwtc_hw(:, polar == 1);
+trop_gwtc_hw = gwtc_hw(:, trop == 1);
+hstrop_gwtc_hw  = gwtc_hw(:, hstrop == 1);
+med_gwtc_hw = gwtc_hw(:, med == 1);
+mwc_gwtc_hw = gwtc_hw(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\binaries\gwtc_hw.mat', 'cold_gwtc_hw','dry_gwtc_hw','high_gwtc_hw','mild_gwtc_hw', 'polar_gwtc_hw', 'trop_gwtc_hw', 'hstrop_gwtc_hw','med_gwtc_hw','mwc_gwtc_hw', '-v7.3');
+ clear gwtc_hw cold_gwtc_hw dry_gwtc_hw high_gwtc_hw mild_gwtc_hw polar_gwtc_hw trop_gwtc_hw hstrop_gwtc_hw med_gwtc_hw mwc_gwtc_hw
+
+
+
+%  % HC
+cold_gwtc_hc  = gwtc_hc(:, cold == 1);
+dry_gwtc_hc = gwtc_hc(:, dry == 1);
+high_gwtc_hc = gwtc_hc(:, high == 1);
+mild_gwtc_hc = gwtc_hc(:, mild == 1);
+polar_gwtc_hc = gwtc_hc(:, polar == 1);
+trop_gwtc_hc = gwtc_hc(:, trop == 1);
+hstrop_gwtc_hc  = gwtc_hc(:, hstrop == 1);
+med_gwtc_hc = gwtc_hc(:, med == 1);
+mwc_gwtc_hc = gwtc_hc(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\binaries\gwtc_hc.mat', 'cold_gwtc_hc','dry_gwtc_hc','high_gwtc_hc','mild_gwtc_hc', 'polar_gwtc_hc', 'trop_gwtc_hc', 'hstrop_gwtc_hc','med_gwtc_hc','mwc_gwtc_hc','-v7.3', '-v7.3');
+ clear gwtc_hc cold_gwtc_hc dry_gwtc_hc high_gwtc_hc mild_gwtc_hc polar_gwtc_hc trop_gwtc_hc hstrop_gwtc_hc med_gwtc_hc mwc_gwtc_hc
+
+
+ % H
+cold_gwtc_h  = gwtc_h(:, cold == 1);
+dry_gwtc_h = gwtc_h(:, dry == 1);
+high_gwtc_h = gwtc_h(:, high == 1);
+mild_gwtc_h = gwtc_h(:, mild == 1);
+polar_gwtc_h = gwtc_h(:, polar == 1);
+trop_gwtc_h = gwtc_h(:, trop == 1);
+hstrop_gwtc_h  = gwtc_h(:, hstrop == 1);
+med_gwtc_h = gwtc_h(:, med == 1);
+mwc_gwtc_h = gwtc_h(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\binaries\gwtc_h.mat', 'cold_gwtc_h','dry_gwtc_h','high_gwtc_h','mild_gwtc_h', 'polar_gwtc_h', 'trop_gwtc_h', 'hstrop_gwtc_h','med_gwtc_h','mwc_gwtc_h', '-v7.3');
+ clear gwtc_h cold_gwtc_h dry_gwtc_h high_gwtc_h mild_gwtc_h polar_gwtc_h trop_gwtc_h hstrop_gwtc_h med_gwtc_h mwc_gwtc_h
+
+
+%   DW
+cold_gwtc_dw  = gwtc_dw(:, cold == 1);
+dry_gwtc_dw = gwtc_dw(:, dry == 1);
+high_gwtc_dw = gwtc_dw(:, high == 1);
+mild_gwtc_dw = gwtc_dw(:, mild == 1);
+polar_gwtc_dw = gwtc_dw(:, polar == 1);
+trop_gwtc_dw = gwtc_dw(:, trop == 1);
+hstrop_gwtc_dw  = gwtc_dw(:, hstrop == 1);
+med_gwtc_dw = gwtc_dw(:, med == 1);
+mwc_gwtc_dw = gwtc_dw(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\binaries\gwtc_dw.mat', 'cold_gwtc_dw','dry_gwtc_dw','high_gwtc_dw','mild_gwtc_dw', 'polar_gwtc_dw', 'trop_gwtc_dw', 'hstrop_gwtc_dw','med_gwtc_dw','mwc_gwtc_dw', '-v7.3');
+ clear gwtc_dw cold_gwtc_dw dry_gwtc_dw high_gwtc_dw mild_gwtc_dw polar_gwtc_dw trop_gwtc_dw hstrop_gwtc_dw med_gwtc_dw mwc_gwtc_dw
+
+
+
+%  % DC
+cold_gwtc_dc  = gwtc_dc(:, cold == 1);
+dry_gwtc_dc = gwtc_dc(:, dry == 1);
+high_gwtc_dc = gwtc_dc(:, high == 1);
+mild_gwtc_dc = gwtc_dc(:, mild == 1);
+polar_gwtc_dc = gwtc_dc(:, polar == 1);
+trop_gwtc_dc = gwtc_dc(:, trop == 1);
+hstrop_gwtc_dc  = gwtc_dc(:, hstrop == 1);
+med_gwtc_dc = gwtc_dc(:, med == 1);
+mwc_gwtc_dc = gwtc_dc(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\binaries\gwtc_dc.mat', 'cold_gwtc_dc','dry_gwtc_dc','high_gwtc_dc','mild_gwtc_dc', 'polar_gwtc_dc', 'trop_gwtc_dc', 'hstrop_gwtc_dc','med_gwtc_dc','mwc_gwtc_dc', '-v7.3');
+ clear gwtc_dc cold_gwtc_dc dry_gwtc_dc high_gwtc_dc mild_gwtc_dc polar_gwtc_dc trop_gwtc_dc hstrop_gwtc_dc med_gwtc_dc mwc_gwtc_dc
+
+
+%  % D
+cold_gwtc_d  = gwtc_d(:, cold == 1);
+dry_gwtc_d = gwtc_d(:, dry == 1);
+high_gwtc_d = gwtc_d(:, high == 1);
+mild_gwtc_d = gwtc_d(:, mild == 1);
+polar_gwtc_d = gwtc_d(:, polar == 1);
+trop_gwtc_d = gwtc_d(:, trop == 1);
+hstrop_gwtc_d  = gwtc_d(:, hstrop == 1);
+med_gwtc_d = gwtc_d(:, med == 1);
+mwc_gwtc_d = gwtc_d(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\binaries\gwtc_d.mat', 'cold_gwtc_d','dry_gwtc_d','high_gwtc_d','mild_gwtc_d', 'polar_gwtc_d', 'trop_gwtc_d', 'hstrop_gwtc_d','med_gwtc_d','mwc_gwtc_d','-v7.3');
+ clear gwtc_d cold_gwtc_d dry_gwtc_d high_gwtc_d mild_gwtc_d polar_gwtc_d trop_gwtc_d hstrop_gwtc_d med_gwtc_d mwc_gwtc_d
+
+
+%  % CFP
+cold_gwtc_cfp  = gwtc_cfp(:, cold == 1);
+dry_gwtc_cfp = gwtc_cfp(:, dry == 1);
+high_gwtc_cfp = gwtc_cfp(:, high == 1);
+mild_gwtc_cfp = gwtc_cfp(:, mild == 1);
+polar_gwtc_cfp = gwtc_cfp(:, polar == 1);
+trop_gwtc_cfp = gwtc_cfp(:, trop == 1);
+hstrop_gwtc_cfp  = gwtc_cfp(:, hstrop == 1);
+med_gwtc_cfp = gwtc_cfp(:, med == 1);
+mwc_gwtc_cfp = gwtc_cfp(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\binaries\gwtc_cfp.mat', 'cold_gwtc_cfp','dry_gwtc_cfp','high_gwtc_cfp','mild_gwtc_cfp', 'polar_gwtc_cfp', 'trop_gwtc_cfp', 'hstrop_gwtc_cfp','med_gwtc_cfp','mwc_gwtc_cfp', '-v7.3');
+ clear gwtc_cfp cold_gwtc_cfp dry_gwtc_cfp high_gwtc_cfp mild_gwtc_cfp polar_gwtc_cfp trop_gwtc_cfp hstrop_gwtc_cfp med_gwtc_cfp mwc_gwtc_cfp
+
+
+
+%  % C
+cold_gwtc_c  = gwtc_c(:, cold == 1);
+dry_gwtc_c = gwtc_c(:, dry == 1);
+high_gwtc_c = gwtc_c(:, high == 1);
+mild_gwtc_c = gwtc_c(:, mild == 1);
+polar_gwtc_c = gwtc_c(:, polar == 1);
+trop_gwtc_c = gwtc_c(:, trop == 1);
+hstrop_gwtc_c  = gwtc_c(:, hstrop == 1);
+med_gwtc_c = gwtc_c(:, med == 1);
+mwc_gwtc_c = gwtc_c(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\binaries\gwtc_c.mat', 'cold_gwtc_c','dry_gwtc_c','high_gwtc_c','mild_gwtc_c', 'polar_gwtc_c', 'trop_gwtc_c', 'hstrop_gwtc_c','med_gwtc_c','mwc_gwtc_c', '-v7.3');
+ clear gwtc_c cold_gwtc_c dry_gwtc_c high_gwtc_c mild_gwtc_c polar_gwtc_c trop_gwtc_c hstrop_gwtc_c med_gwtc_c mwc_gwtc_c
+
+%% to divide daily total precipitation into four seasons
+
+wint_totp  = new_precip(winter_time == 1, :);
+spr_totp = new_precip(spring_time == 1, :);
+summ_totp = new_precip(summer_time == 1, :);
+fall_totp = new_precip(fall_time == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\tot_precip\seas_totp.mat', 'wint_totp','spr_totp','summ_totp','fall_totp','-v7.3');
+clear precip wint_totp spr_totp summ_totp fall_totp
+###############################################################################################################################################################################################
+FREQUENCY OF OCCURRENCE
+
+%% FREQUENCY OF OCCURRENCE WINTER
+% 
+% wint_freq_c = (mean(wint_gwtc_c, 1))*100;
+% wint_freq_cfp = (mean(wint_gwtc_cfp, 1))*100;
+% wint_freq_d = (mean(wint_gwtc_d, 1))*100;
+% wint_freq_dc = (mean(wint_gwtc_dc, 1))*100;
+% wint_freq_dw = (mean(wint_gwtc_dw, 1))*100;
+% wint_freq_h = (mean(wint_gwtc_h, 1))*100;
+% wint_freq_hc = (mean(wint_gwtc_hc, 1))*100;
+% wint_freq_hw = (mean(wint_gwtc_hw, 1))*100;
+% wint_freq_s = (mean(wint_gwtc_s, 1))*100;
+% wint_freq_w = (mean(wint_gwtc_w, 1))*100;
+% wint_freq_wfp = (mean(wint_gwtc_wfp, 1))*100;
+% 
+% %% FREQUENCY OF OCCURRENCE SPRING
+% 
+% spr_freq_c = (mean(spr_gwtc_c, 1))*100;
+% spr_freq_cfp = (mean(spr_gwtc_cfp, 1))*100;
+% spr_freq_d = (mean(spr_gwtc_d, 1))*100;
+% spr_freq_dc = (mean(spr_gwtc_dc, 1))*100;
+% spr_freq_dw = (mean(spr_gwtc_dw, 1))*100;
+% spr_freq_h = (mean(spr_gwtc_h, 1))*100;
+% spr_freq_hc = (mean(spr_gwtc_hc, 1))*100;
+% spr_freq_hw = (mean(spr_gwtc_hw, 1))*100;
+% spr_freq_s = (mean(spr_gwtc_s, 1))*100;
+% spr_freq_w = (mean(spr_gwtc_w, 1))*100;
+% spr_freq_wfp = (mean(spr_gwtc_wfp, 1))*100;
+% 
+% %% FREQUENCY OF OCCURRENCE SUMMER
+% 
+% summ_freq_c = (mean(summ_gwtc_c, 1))*100;
+% summ_freq_cfp = (mean(summ_gwtc_cfp, 1))*100;
+% summ_freq_d = (mean(summ_gwtc_d, 1))*100;
+% summ_freq_dc = (mean(summ_gwtc_dc, 1))*100;
+% summ_freq_dw = (mean(summ_gwtc_dw, 1))*100;
+% summ_freq_h = (mean(summ_gwtc_h, 1))*100;
+% summ_freq_hc = (mean(summ_gwtc_hc, 1))*100;
+% summ_freq_hw = (mean(summ_gwtc_hw, 1))*100;
+% summ_freq_s = (mean(summ_gwtc_s, 1))*100;
+% summ_freq_w = (mean(summ_gwtc_w, 1))*100;
+% summ_freq_wfp = (mean(summ_gwtc_wfp, 1))*100;
+% 
+% %% FREQUENCY OF OCCURRENCE FALL
+% 
+% fall_freq_c = (mean(fall_gwtc_c, 1))*100;
+% fall_freq_cfp = (mean(fall_gwtc_cfp, 1))*100;
+% fall_freq_d = (mean(fall_gwtc_d, 1))*100;
+% fall_freq_dc = (mean(fall_gwtc_dc, 1))*100;
+% fall_freq_dw = (mean(fall_gwtc_dw, 1))*100;
+% fall_freq_h = (mean(fall_gwtc_h, 1))*100;
+% fall_freq_hc = (mean(fall_gwtc_hc, 1))*100;
+% fall_freq_hw = (mean(fall_gwtc_hw, 1))*100;
+% fall_freq_s = (mean(fall_gwtc_s, 1))*100;
+% fall_freq_w = (mean(fall_gwtc_w, 1))*100;
+% fall_freq_wfp = (mean(fall_gwtc_wfp, 1))*100;
+% 
+% %% FREQUENCY OF OCCURRENCE TROP
+% 
+% trop_freq_c = (mean(trop_gwtc_c, 1))*100;
+% trop_freq_cfp = (mean(trop_gwtc_cfp, 1))*100;
+% trop_freq_d = (mean(trop_gwtc_d, 1))*100;
+% trop_freq_dc = (mean(trop_gwtc_dc, 1))*100;
+% trop_freq_dw = (mean(trop_gwtc_dw, 1))*100;
+% trop_freq_h = (mean(trop_gwtc_h, 1))*100;
+% trop_freq_hc = (mean(trop_gwtc_hc, 1))*100;
+% trop_freq_hw = (mean(trop_gwtc_hw, 1))*100;
+% trop_freq_s = (mean(trop_gwtc_s, 1))*100;
+% trop_freq_w = (mean(trop_gwtc_w, 1))*100;
+% trop_freq_wfp = (mean(trop_gwtc_wfp, 1))*100;
+% 
+% %% FREQUENCY OF OCCURRENCE DRY
+% 
+% dry_freq_c = (mean(dry_gwtc_c, 1))*100;
+% dry_freq_cfp = (mean(dry_gwtc_cfp, 1))*100;
+% dry_freq_d = (mean(dry_gwtc_d, 1))*100;
+% dry_freq_dc = (mean(dry_gwtc_dc, 1))*100;
+% dry_freq_dw = (mean(dry_gwtc_dw, 1))*100;
+% dry_freq_h = (mean(dry_gwtc_h, 1))*100;
+% dry_freq_hc = (mean(dry_gwtc_hc, 1))*100;
+% dry_freq_hw = (mean(dry_gwtc_hw, 1))*100;
+% dry_freq_s = (mean(dry_gwtc_s, 1))*100;
+% dry_freq_w = (mean(dry_gwtc_w, 1))*100;
+% dry_freq_wfp = (mean(dry_gwtc_wfp, 1))*100;
+% 
+% %% FREQUENCY OF OCCURRENCE MILD
+% 
+% mild_freq_c = (mean(mild_gwtc_c, 1))*100;
+% mild_freq_cfp = (mean(mild_gwtc_cfp, 1))*100;
+% mild_freq_d = (mean(mild_gwtc_d, 1))*100;
+% mild_freq_dc = (mean(mild_gwtc_dc, 1))*100;
+% mild_freq_dw = (mean(mild_gwtc_dw, 1))*100;
+% mild_freq_h = (mean(mild_gwtc_h, 1))*100;
+% mild_freq_hc = (mean(mild_gwtc_hc, 1))*100;
+% mild_freq_hw = (mean(mild_gwtc_hw, 1))*100;
+% mild_freq_s = (mean(mild_gwtc_s, 1))*100;
+% mild_freq_w = (mean(mild_gwtc_w, 1))*100;
+% mild_freq_wfp = (mean(mild_gwtc_wfp, 1))*100;
+% 
+% %% FREQUENCY OF OCCURRENCE COLD
+% 
+% cold_freq_c = (mean(cold_gwtc_c, 1))*100;
+% cold_freq_cfp = (mean(cold_gwtc_cfp, 1))*100;
+% cold_freq_d = (mean(cold_gwtc_d, 1))*100;
+% cold_freq_dc = (mean(cold_gwtc_dc, 1))*100;
+% cold_freq_dw = (mean(cold_gwtc_dw, 1))*100;
+% cold_freq_h = (mean(cold_gwtc_h, 1))*100;
+% cold_freq_hc = (mean(cold_gwtc_hc, 1))*100;
+% cold_freq_hw = (mean(cold_gwtc_hw, 1))*100;
+% cold_freq_s = (mean(cold_gwtc_s, 1))*100;
+% cold_freq_w = (mean(cold_gwtc_w, 1))*100;
+% cold_freq_wfp = (mean(cold_gwtc_wfp, 1))*100;
+% 
+% %% FREQUENCY OF OCCURRENCE POLAR
+% 
+% polar_freq_c = (mean(polar_gwtc_c, 1))*100;
+% polar_freq_cfp = (mean(polar_gwtc_cfp, 1))*100;
+% polar_freq_d = (mean(polar_gwtc_d, 1))*100;
+% polar_freq_dc = (mean(polar_gwtc_dc, 1))*100;
+% polar_freq_dw = (mean(polar_gwtc_dw, 1))*100;
+% polar_freq_h = (mean(polar_gwtc_h, 1))*100;
+% polar_freq_hc = (mean(polar_gwtc_hc, 1))*100;
+% polar_freq_hw = (mean(polar_gwtc_hw, 1))*100;
+% polar_freq_s = (mean(polar_gwtc_s, 1))*100;
+% polar_freq_w = (mean(polar_gwtc_w, 1))*100;
+% polar_freq_wfp = (mean(polar_gwtc_wfp, 1))*100;
+% 
+% %% FREQUENCY OF OCCURRENCE HIGH
+% 
+% high_freq_c = (mean(high_gwtc_c, 1))*100;
+% high_freq_cfp = (mean(high_gwtc_cfp, 1))*100;
+% high_freq_d = (mean(high_gwtc_d, 1))*100;
+% high_freq_dc = (mean(high_gwtc_dc, 1))*100;
+% high_freq_dw = (mean(high_gwtc_dw, 1))*100;
+% high_freq_h = (mean(high_gwtc_h, 1))*100;
+% high_freq_hc = (mean(high_gwtc_hc, 1))*100;
+% high_freq_hw = (mean(high_gwtc_hw, 1))*100;
+% high_freq_s = (mean(high_gwtc_s, 1))*100;
+% high_freq_w = (mean(high_gwtc_w, 1))*100;
+% high_freq_wfp = (mean(high_gwtc_wfp, 1))*100;
+
+
+
+%% FREQUENCY OF OCCURRENCE HSTROP
+
+hstrop_freq_c = (mean(hstrop_gwtc_c, 1))*100;
+hstrop_freq_cfp = (mean(hstrop_gwtc_cfp, 1))*100;
+hstrop_freq_d = (mean(hstrop_gwtc_d, 1))*100;
+hstrop_freq_dc = (mean(hstrop_gwtc_dc, 1))*100;
+hstrop_freq_dw = (mean(hstrop_gwtc_dw, 1))*100;
+hstrop_freq_h = (mean(hstrop_gwtc_h, 1))*100;
+hstrop_freq_hc = (mean(hstrop_gwtc_hc, 1))*100;
+hstrop_freq_hw = (mean(hstrop_gwtc_hw, 1))*100;
+hstrop_freq_s = (mean(hstrop_gwtc_s, 1))*100;
+hstrop_freq_w = (mean(hstrop_gwtc_w, 1))*100;
+hstrop_freq_wfp = (mean(hstrop_gwtc_wfp, 1))*100;
+
+% FREQUENCY OF OCCURRENCE MED
+
+med_freq_c = (mean(med_gwtc_c, 1))*100;
+med_freq_cfp = (mean(med_gwtc_cfp, 1))*100;
+med_freq_d = (mean(med_gwtc_d, 1))*100;
+med_freq_dc = (mean(med_gwtc_dc, 1))*100;
+med_freq_dw = (mean(med_gwtc_dw, 1))*100;
+med_freq_h = (mean(med_gwtc_h, 1))*100;
+med_freq_hc = (mean(med_gwtc_hc, 1))*100;
+med_freq_hw = (mean(med_gwtc_hw, 1))*100;
+med_freq_s = (mean(med_gwtc_s, 1))*100;
+med_freq_w = (mean(med_gwtc_w, 1))*100;
+med_freq_wfp = (mean(med_gwtc_wfp, 1))*100;
+
+% %% FREQUENCY OF OCCURRENCE MWC
+
+mwc_freq_c = (mean(mwc_gwtc_c, 1))*100;
+mwc_freq_cfp = (mean(mwc_gwtc_cfp, 1))*100;
+mwc_freq_d = (mean(mwc_gwtc_d, 1))*100;
+mwc_freq_dc = (mean(mwc_gwtc_dc, 1))*100;
+mwc_freq_dw = (mean(mwc_gwtc_dw, 1))*100;
+mwc_freq_h = (mean(mwc_gwtc_h, 1))*100;
+mwc_freq_hc = (mean(mwc_gwtc_hc, 1))*100;
+mwc_freq_hw = (mean(mwc_gwtc_hw, 1))*100;
+mwc_freq_s = (mean(mwc_gwtc_s, 1))*100;
+mwc_freq_w = (mean(mwc_gwtc_w, 1))*100;
+mwc_freq_wfp = (mean(mwc_gwtc_wfp, 1))*100;
+%%
+
+
+
+
+
+
+##########################################################################################################################################################################################
+%% 1.  "Cold AMs" 
+load('C:\Users\oobarein\Desktop\Dissertation\Regional data\snowday\reg_sd.mat')
+tic
+trop_relcon_C = relcont(trop_sd, trop_gwtc_c, trop_freq_c); 
+dry_relcon_C = relcont(dry_sd, dry_gwtc_c, dry_freq_c); 
+mild_relcon_C = relcont(mild_sd, mild_gwtc_c, mild_freq_c); 
+cold_relcon_C = relcont(cold_sd, cold_gwtc_c, cold_freq_c); 
+polar_relcon_C = relcont(polar_sd, polar_gwtc_c, polar_freq_c); 
+high_relcon_C = relcont(high_sd, high_gwtc_c, high_freq_c); 
+hstrop_relcon_C = relcont(hstrop_sd, hstrop_gwtc_c, hstrop_freq_c); 
+med_relcon_C = relcont(med_sd, med_gwtc_c, med_freq_c); 
+mwc_relcon_C = relcont(mwc_sd, mwc_gwtc_c, mwc_freq_c); 
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_relcon_sd\gwtc_C.mat', 'trop_relcon_C', 'dry_relcon_C', 'mild_relcon_C', 'cold_relcon_C', 'polar_relcon_C', 'high_relcon_C','hstrop_relcon_C', 'med_relcon_C', 'mwc_relcon_C');
+clear trop_relcon_C dry_relcon_C mild_relcon_C cold_relcon_C polar_relcon_C high_relcon_C hstrop_relcon_C med_relcon_C mwc_relcon_C
+
+ 
+% 2.  "Cold Front Passage AMs" 
+trop_relcon_CFP = relcont(trop_sd, trop_gwtc_cfp, trop_freq_cfp); 
+dry_relcon_CFP = relcont(dry_sd, dry_gwtc_cfp, dry_freq_cfp); 
+mild_relcon_CFP = relcont(mild_sd, mild_gwtc_cfp, mild_freq_cfp); 
+cold_relcon_CFP = relcont(cold_sd, cold_gwtc_cfp, cold_freq_cfp); 
+polar_relcon_CFP = relcont(polar_sd, polar_gwtc_cfp, polar_freq_cfp); 
+high_relcon_CFP = relcont(high_sd, high_gwtc_cfp, high_freq_cfp);
+hstrop_relcon_CFP = relcont(hstrop_sd, hstrop_gwtc_cfp, hstrop_freq_cfp); 
+med_relcon_CFP = relcont(med_sd, med_gwtc_cfp, med_freq_cfp); 
+mwc_relcon_CFP = relcont(mwc_sd, mwc_gwtc_cfp, mwc_freq_cfp); 
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_relcon_sd\gwtc_CFP.mat', 'trop_relcon_CFP', 'dry_relcon_CFP', 'mild_relcon_CFP', 'cold_relcon_CFP', 'polar_relcon_CFP', 'high_relcon_CFP','hstrop_relcon_CFP', 'med_relcon_CFP', 'mwc_relcon_CFP');
+clear trop_relcon_CFP dry_relcon_CFP mild_relcon_CFP cold_relcon_CFP polar_relcon_CFP high_relcon_CFP hstrop_relcon_CFP med_relcon_CFP mwc_relcon_CFP
+
+ 
+% 3.  "Dry AMs" 
+trop_relcon_D = relcont(trop_sd, trop_gwtc_d, trop_freq_d); 
+dry_relcon_D = relcont(dry_sd, dry_gwtc_d, dry_freq_d); 
+mild_relcon_D = relcont(mild_sd, mild_gwtc_d, mild_freq_d); 
+cold_relcon_D = relcont(cold_sd, cold_gwtc_d, cold_freq_d); 
+polar_relcon_D = relcont(polar_sd, polar_gwtc_d, polar_freq_d); 
+high_relcon_D = relcont(high_sd, high_gwtc_d, high_freq_d);
+hstrop_relcon_D = relcont(hstrop_sd, hstrop_gwtc_d, hstrop_freq_d); 
+med_relcon_D = relcont(med_sd, med_gwtc_d, med_freq_d); 
+mwc_relcon_D = relcont(mwc_sd, mwc_gwtc_d, mwc_freq_d); 
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_relcon_sd\gwtc_D.mat', 'trop_relcon_D', 'dry_relcon_D', 'mild_relcon_D', 'cold_relcon_D', 'polar_relcon_D', 'high_relcon_D','hstrop_relcon_D', 'med_relcon_D', 'mwc_relcon_D');
+clear trop_relcon_D dry_relcon_D mild_relcon_D cold_relcon_D polar_relcon_D high_relcon_D hstrop_relcon_D med_relcon_D mwc_relcon_D
+ 
+% 4. "Dry Cold AMs" 
+trop_relcon_DC = relcont(trop_sd, trop_gwtc_dc, trop_freq_dc); 
+dry_relcon_DC = relcont(dry_sd, dry_gwtc_dc, dry_freq_dc); 
+mild_relcon_DC = relcont(mild_sd, mild_gwtc_dc, mild_freq_dc); 
+cold_relcon_DC = relcont(cold_sd, cold_gwtc_dc, cold_freq_dc); 
+polar_relcon_DC = relcont(polar_sd, polar_gwtc_dc, polar_freq_dc); 
+high_relcon_DC = relcont(high_sd, high_gwtc_dc, high_freq_dc);
+hstrop_relcon_DC = relcont(hstrop_sd, hstrop_gwtc_dc, hstrop_freq_dc); 
+med_relcon_DC = relcont(med_sd, med_gwtc_dc, med_freq_dc); 
+mwc_relcon_DC = relcont(mwc_sd, mwc_gwtc_dc, mwc_freq_dc); 
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_relcon_sd\gwtc_DC.mat', 'trop_relcon_DC', 'dry_relcon_DC', 'mild_relcon_DC', 'cold_relcon_DC', 'polar_relcon_DC', 'high_relcon_DC','hstrop_relcon_DC', 'med_relcon_DC', 'mwc_relcon_DC');
+clear trop_relcon_DC dry_relcon_DC mild_relcon_DC cold_relcon_DC polar_relcon_DC high_relcon_DC hstrop_relcon_DC med_relcon_DC mwc_relcon_DC
+
+ 
+% 5.  "Dry Warm AMs" 
+trop_relcon_DW = relcont(trop_sd, trop_gwtc_dw, trop_freq_dw); 
+dry_relcon_DW = relcont(dry_sd, dry_gwtc_dw, dry_freq_dw); 
+mild_relcon_DW = relcont(mild_sd, mild_gwtc_dw, mild_freq_dw); 
+cold_relcon_DW = relcont(cold_sd, cold_gwtc_dw, cold_freq_dw); 
+polar_relcon_DW = relcont(polar_sd, polar_gwtc_dw, polar_freq_dw); 
+high_relcon_DW = relcont(high_sd, high_gwtc_dw, high_freq_dw); 
+hstrop_relcon_DW = relcont(hstrop_sd, hstrop_gwtc_dw, hstrop_freq_dw); 
+med_relcon_DW = relcont(med_sd, med_gwtc_dw, med_freq_dw); 
+mwc_relcon_DW = relcont(mwc_sd, mwc_gwtc_dw, mwc_freq_dw); 
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_relcon_sd\gwtc_DW.mat', 'trop_relcon_DW', 'dry_relcon_DW', 'mild_relcon_DW', 'cold_relcon_DW', 'polar_relcon_DW', 'high_relcon_DW','hstrop_relcon_DW', 'med_relcon_DW', 'mwc_relcon_DW');
+clear trop_relcon_DW dry_relcon_DW mild_relcon_DW cold_relcon_DW polar_relcon_DW high_relcon_DW hstrop_relcon_DW med_relcon_DW mwc_relcon_DW
+
+
+% 6.  "Humid AMs" 
+trop_relcon_H = relcont(trop_sd, trop_gwtc_h, trop_freq_h); 
+dry_relcon_H = relcont(dry_sd, dry_gwtc_h, dry_freq_h); 
+mild_relcon_H = relcont(mild_sd, mild_gwtc_h, mild_freq_h);   
+cold_relcon_H = relcont(cold_sd, cold_gwtc_h, cold_freq_h); 
+polar_relcon_H = relcont(polar_sd, polar_gwtc_h, polar_freq_h); 
+high_relcon_H = relcont(high_sd, high_gwtc_h, high_freq_h); 
+hstrop_relcon_H = relcont(hstrop_sd, hstrop_gwtc_h, hstrop_freq_h); 
+med_relcon_H = relcont(med_sd, med_gwtc_h, med_freq_h); 
+mwc_relcon_H = relcont(mwc_sd, mwc_gwtc_h, mwc_freq_h); 
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_relcon_sd\gwtc_H.mat', 'trop_relcon_H', 'dry_relcon_H', 'mild_relcon_H', 'cold_relcon_H', 'polar_relcon_H', 'high_relcon_H','hstrop_relcon_H', 'med_relcon_H', 'mwc_relcon_H');
+clear trop_relcon_H dry_relcon_H mild_relcon_H cold_relcon_H polar_relcon_H high_relcon_H hstrop_relcon_H med_relcon_H mwc_relcon_H
+
+
+% 7.  "Humid Cold AMs" 
+trop_relcon_HC = relcont(trop_sd, trop_gwtc_hc, trop_freq_hc); 
+dry_relcon_HC = relcont(dry_sd, dry_gwtc_hc, dry_freq_hc); 
+mild_relcon_HC = relcont(mild_sd, mild_gwtc_hc, mild_freq_hc); 
+cold_relcon_HC = relcont(cold_sd, cold_gwtc_hc, cold_freq_hc); 
+polar_relcon_HC = relcont(polar_sd, polar_gwtc_hc, polar_freq_hc); 
+high_relcon_HC = relcont(high_sd, high_gwtc_hc, high_freq_hc);
+hstrop_relcon_HC = relcont(hstrop_sd, hstrop_gwtc_hc, hstrop_freq_hc); 
+med_relcon_HC = relcont(med_sd, med_gwtc_hc, med_freq_hc); 
+mwc_relcon_HC = relcont(mwc_sd, mwc_gwtc_hc, mwc_freq_hc); 
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_relcon_sd\gwtc_HC.mat', 'trop_relcon_HC', 'dry_relcon_HC', 'mild_relcon_HC', 'cold_relcon_HC', 'polar_relcon_HC', 'high_relcon_HC','hstrop_relcon_HC', 'med_relcon_HC', 'mwc_relcon_HC');
+clear trop_relcon_HC dry_relcon_HC mild_relcon_HC cold_relcon_HC polar_relcon_HC high_relcon_HC hstrop_relcon_HC med_relcon_HC mwc_relcon_HC
+
+
+% 8. "Humid Warm AMs" 
+trop_relcon_HW = relcont(trop_sd, trop_gwtc_hw, trop_freq_hw); 
+dry_relcon_HW = relcont(dry_sd, dry_gwtc_hw, dry_freq_hw); 
+mild_relcon_HW = relcont(mild_sd, mild_gwtc_hw, mild_freq_hw); 
+cold_relcon_HW = relcont(cold_sd, cold_gwtc_hw, cold_freq_hw); 
+polar_relcon_HW = relcont(polar_sd, polar_gwtc_hw, polar_freq_hw); 
+high_relcon_HW = relcont(high_sd, high_gwtc_hw, high_freq_hw); 
+hstrop_relcon_HW = relcont(hstrop_sd, hstrop_gwtc_hw, hstrop_freq_hw); 
+med_relcon_HW = relcont(med_sd, med_gwtc_hw, med_freq_hw); 
+mwc_relcon_HW = relcont(mwc_sd, mwc_gwtc_hw, mwc_freq_hw); 
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_relcon_sd\gwtc_HW.mat', 'trop_relcon_HW', 'dry_relcon_HW', 'mild_relcon_HW', 'cold_relcon_HW', 'polar_relcon_HW', 'high_relcon_HW','hstrop_relcon_HW', 'med_relcon_HW', 'mwc_relcon_HW');
+clear trop_relcon_HW dry_relcon_HW mild_relcon_HW cold_relcon_HW polar_relcon_HW high_relcon_HW hstrop_relcon_HW med_relcon_HW mwc_relcon_HW
+
+
+% 9.  "Seasonal AMs" 
+trop_relcon_S = relcont(trop_sd, trop_gwtc_s, trop_freq_s); 
+dry_relcon_S = relcont(dry_sd, dry_gwtc_s, dry_freq_s); 
+mild_relcon_S = relcont(mild_sd, mild_gwtc_s, mild_freq_s); 
+cold_relcon_S = relcont(cold_sd, cold_gwtc_s, cold_freq_s); 
+polar_relcon_S = relcont(polar_sd, polar_gwtc_s, polar_freq_s); 
+high_relcon_S = relcont(high_sd, high_gwtc_s, high_freq_s); 
+hstrop_relcon_S = relcont(hstrop_sd, hstrop_gwtc_s, hstrop_freq_s); 
+med_relcon_S = relcont(med_sd, med_gwtc_s, med_freq_s); 
+mwc_relcon_S = relcont(mwc_sd, mwc_gwtc_s, mwc_freq_s); 
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_relcon_sd\gwtc_S.mat', 'trop_relcon_S', 'dry_relcon_S', 'mild_relcon_S', 'cold_relcon_S', 'polar_relcon_S', 'high_relcon_S','hstrop_relcon_S', 'med_relcon_S', 'mwc_relcon_S');
+clear trop_relcon_S dry_relcon_S mild_relcon_S cold_relcon_S polar_relcon_S high_relcon_S hstrop_relcon_S med_relcon_S mwc_relcon_S
+
+
+% 10.  "Warm AMs" 
+trop_relcon_W = relcont(trop_sd, trop_gwtc_w, trop_freq_w); 
+dry_relcon_W = relcont(dry_sd, dry_gwtc_w, dry_freq_w); 
+mild_relcon_W = relcont(mild_sd, mild_gwtc_w, mild_freq_w); 
+cold_relcon_W = relcont(cold_sd, cold_gwtc_w, cold_freq_w); 
+polar_relcon_W = relcont(polar_sd, polar_gwtc_w, polar_freq_w); 
+high_relcon_W = relcont(high_sd, high_gwtc_w, high_freq_w); 
+hstrop_relcon_W = relcont(hstrop_sd, hstrop_gwtc_w, hstrop_freq_w); 
+med_relcon_W = relcont(med_sd, med_gwtc_w, med_freq_w); 
+mwc_relcon_W = relcont(mwc_sd, mwc_gwtc_w, mwc_freq_w); 
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_relcon_sd\gwtc_W.mat', 'trop_relcon_W', 'dry_relcon_W', 'mild_relcon_W', 'cold_relcon_W', 'polar_relcon_W', 'high_relcon_W','hstrop_relcon_W', 'med_relcon_W', 'mwc_relcon_W');
+clear trop_relcon_W dry_relcon_W mild_relcon_W cold_relcon_W polar_relcon_W high_relcon_W hstrop_relcon_W med_relcon_W mwc_relcon_W
+
+ % 11.  "Warm Front Passage AMs" Precipitation totals
+trop_relcon_WFP = relcont(trop_sd, trop_gwtc_wfp, trop_freq_wfp); 
+dry_relcon_WFP = relcont(dry_sd, dry_gwtc_wfp, dry_freq_wfp); 
+mild_relcon_WFP = relcont(mild_sd, mild_gwtc_wfp, mild_freq_wfp); 
+cold_relcon_WFP = relcont(cold_sd, cold_gwtc_wfp, cold_freq_wfp); 
+polar_relcon_WFP = relcont(polar_sd, polar_gwtc_wfp, polar_freq_wfp); 
+high_relcon_WFP = relcont(high_sd, high_gwtc_wfp, high_freq_wfp); 
+hstrop_relcon_WFP = relcont(hstrop_sd, hstrop_gwtc_wfp, hstrop_freq_wfp); 
+med_relcon_WFP = relcont(med_sd, med_gwtc_wfp, med_freq_wfp); 
+mwc_relcon_WFP = relcont(mwc_sd, mwc_gwtc_wfp, mwc_freq_wfp); 
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_relcon_sd\gwtc_WFP.mat', 'trop_relcon_WFP', 'dry_relcon_WFP', 'mild_relcon_WFP', 'cold_relcon_WFP', 'polar_relcon_WFP', 'high_relcon_WFP','hstrop_relcon_WFP', 'med_relcon_WFP', 'mwc_relcon_WFP');
+clear trop_relcon_WFP dry_relcon_WFP mild_relcon_WFP cold_relcon_WFP polar_relcon_WFP high_relcon_WFP hstrop_relcon_WFP med_relcon_WFP mwc_relcon_WFP
+toc
+
+
+
+
+
+% wint_gwtc_c = int8(wint_gwtc_c);
+% wint_gwtc_cfp = int8(wint_gwtc_cfp);
+% wint_gwtc_d = int8(wint_gwtc_d);
+% wint_gwtc_dc = int8(wint_gwtc_dc);
+% wint_gwtc_dw = int8(wint_gwtc_dw);
+% wint_gwtc_h = int8(wint_gwtc_h); 
+% wint_gwtc_hc = int8(wint_gwtc_hc);
+% wint_gwtc_hw = int8(wint_gwtc_hw);
+% wint_gwtc_s = int8(wint_gwtc_s);
+% wint_gwtc_w = int8(wint_gwtc_w);
+% wint_gwtc_wfp = int8(wint_gwtc_wfp);
+ %%
+% spr_gwtc_c = int8(spr_gwtc_c);
+% spr_gwtc_cfp = int8(spr_gwtc_cfp);
+% spr_gwtc_d = int8(spr_gwtc_d);
+% spr_gwtc_dc = int8(spr_gwtc_dc);
+% spr_gwtc_dw = int8(spr_gwtc_dw);
+% spr_gwtc_h = int8(spr_gwtc_h);
+% spr_gwtc_hc = int8(spr_gwtc_hc);
+% spr_gwtc_hw = int8(spr_gwtc_hw);
+% spr_gwtc_s = int8(spr_gwtc_s);
+% spr_gwtc_w = int8(spr_gwtc_w);
+% spr_gwtc_wfp = int8(spr_gwtc_wfp);
+
+% save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\binaries\spr_binaries.mat', 'spr_gwtc_c', 'spr_gwtc_cfp', 'spr_gwtc_d', 'spr_gwtc_dc', 'spr_gwtc_dw', 'spr_gwtc_h', 'spr_gwtc_hc', 'spr_gwtc_hw', 'spr_gwtc_s', 'spr_gwtc_w', 'spr_gwtc_wfp','-v7.3');
+% clear spr_gwtc_c spr_gwtc_cfp spr_gwtc_d spr_gwtc_dc spr_gwtc_dw spr_gwtc_h spr_gwtc_hc spr_gwtc_hw spr_gwtc_s spr_gwtc_w spr_gwtc_wfp
+% 
+%%
+% summ_gwtc_c = int8(summ_gwtc_c);
+% summ_gwtc_cfp = int8(summ_gwtc_cfp);
+% summ_gwtc_d = int8(summ_gwtc_d);
+% summ_gwtc_dc = int8(summ_gwtc_dc);
+% summ_gwtc_dw = int8(summ_gwtc_dw);
+% summ_gwtc_h = int8(summ_gwtc_h);
+% summ_gwtc_hc = int8(summ_gwtc_hc);
+% summ_gwtc_hw = int8(summ_gwtc_hw);
+% summ_gwtc_s = int8(summ_gwtc_s);
+% summ_gwtc_w = int8(summ_gwtc_w);
+% summ_gwtc_wfp = int8(summ_gwtc_wfp);
+% 
+% save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\binaries\summ_binaries.mat', 'summ_gwtc_c', 'summ_gwtc_cfp', 'summ_gwtc_d', 'summ_gwtc_dc', 'summ_gwtc_dw', 'summ_gwtc_h', 'summ_gwtc_hc', 'summ_gwtc_hw', 'summ_gwtc_s', 'summ_gwtc_w', 'summ_gwtc_wfp','-v7.3');
+% clear summ_gwtc_c summ_gwtc_cfp summ_gwtc_d summ_gwtc_dc summ_gwtc_dw summ_gwtc_h summ_gwtc_hc summ_gwtc_hw summ_gwtc_s summ_gwtc_w summ_gwtc_wfp
+% 
+% 
+% %
+%% 
+% fall_gwtc_c = int8(fall_gwtc_c);
+% fall_gwtc_cfp = int8(fall_gwtc_cfp);
+% fall_gwtc_d = int8(fall_gwtc_d);
+% fall_gwtc_dc = int8(fall_gwtc_dc);
+% fall_gwtc_dw = int8(fall_gwtc_dw);
+% fall_gwtc_h = int8(fall_gwtc_h);
+% fall_gwtc_hc = int8(fall_gwtc_hc);
+% fall_gwtc_hw = int8(fall_gwtc_hw);
+% fall_gwtc_s = int8(fall_gwtc_s);
+% fall_gwtc_w = int8(fall_gwtc_w);
+% fall_gwtc_wfp = int8(fall_gwtc_wfp);
+% 
+% save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\binaries\fall_binaries.mat', 'fall_gwtc_c', 'fall_gwtc_cfp', 'fall_gwtc_d', 'fall_gwtc_dc', 'fall_gwtc_dw', 'fall_gwtc_h', 'fall_gwtc_hc', 'fall_gwtc_hw', 'fall_gwtc_s', 'fall_gwtc_w', 'fall_gwtc_wfp','-v7.3');
+% clear fall_gwtc_c fall_gwtc_cfp fall_gwtc_d fall_gwtc_dc fall_gwtc_dw fall_gwtc_h fall_gwtc_hc fall_gwtc_hw fall_gwtc_s fall_gwtc_w fall_gwtc_wfp
+%%
+
+
+wint_relcon_c = relcont(wint_totp, wint_gwtc_c, wint_freq_c);
+spr_relcon_c = relcont(spr_totp, spr_gwtc_c, spr_freq_c);
+summ_relcon_c = relcont(summ_totp, summ_gwtc_c, summ_freq_c);
+fall_relcon_c = relcont(fall_totp, fall_gwtc_c, fall_freq_c);
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal output\seas_relcon_tp\gwtc_c.mat', 'wint_relcon_c', 'spr_relcon_c', 'summ_relcon_c', 'fall_relcon_c');
+clear wint_relcon_c spr_relcon_c summ_relcon_c fall_relcon_c
+
+% CFP
+wint_relcon_cfp = relcont(wint_totp, wint_gwtc_cfp, wint_freq_cfp);
+spr_relcon_cfp = relcont(spr_totp, spr_gwtc_cfp, spr_freq_cfp);
+summ_relcon_cfp = relcont(summ_totp, summ_gwtc_cfp, summ_freq_cfp);
+fall_relcon_cfp = relcont(fall_totp, fall_gwtc_cfp, fall_freq_cfp);
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal output\seas_relcon_tp\gwtc_cfp.mat', 'wint_relcon_cfp', 'spr_relcon_cfp', 'summ_relcon_cfp', 'fall_relcon_cfp');
+clear wint_relcon_cfp spr_relcon_cfp summ_relcon_cfp fall_relcon_cfp
+
+% D
+wint_relcon_d = relcont(wint_totp, wint_gwtc_d, wint_freq_d);
+spr_relcon_d = relcont(spr_totp, spr_gwtc_d, spr_freq_d);
+summ_relcon_d = relcont(summ_totp, summ_gwtc_d, summ_freq_d);
+fall_relcon_d = relcont(fall_totp, fall_gwtc_d, fall_freq_d);
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal output\seas_relcon_tp\gwtc_d.mat', 'wint_relcon_d', 'spr_relcon_d', 'summ_relcon_d', 'fall_relcon_d');
+clear wint_relcon_d spr_relcon_d summ_relcon_d fall_relcon_d
+
+% DC
+wint_relcon_dc = relcont(wint_totp, wint_gwtc_dc, wint_freq_dc);
+spr_relcon_dc = relcont(spr_totp, spr_gwtc_dc, spr_freq_dc);
+summ_relcon_dc = relcont(summ_totp, summ_gwtc_dc, summ_freq_dc);
+fall_relcon_dc = relcont(fall_totp, fall_gwtc_dc, fall_freq_dc);
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal output\seas_relcon_tp\gwtc_dc.mat', 'wint_relcon_dc', 'spr_relcon_dc', 'summ_relcon_dc', 'fall_relcon_dc');
+clear wint_relcon_dc spr_relcon_dc summ_relcon_dc fall_relcon_dc
+
+% DW
+wint_relcon_dw = relcont(wint_totp, wint_gwtc_dw, wint_freq_dw);
+spr_relcon_dw = relcont(spr_totp, spr_gwtc_dw, spr_freq_dw);
+summ_relcon_dw = relcont(summ_totp, summ_gwtc_dw, summ_freq_dw);
+fall_relcon_dw = relcont(fall_totp, fall_gwtc_dw, fall_freq_dw);
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal output\seas_relcon_tp\gwtc_dw.mat', 'wint_relcon_dw', 'spr_relcon_dw', 'summ_relcon_dw', 'fall_relcon_dw');
+ clear wint_relcon_dw spr_relcon_dw summ_relcon_dw fall_relcon_dw
+
+% H
+wint_relcon_h = relcont(wint_totp, wint_gwtc_h, wint_freq_h);
+spr_relcon_h = relcont(spr_totp, spr_gwtc_h, spr_freq_h);
+summ_relcon_h = relcont(summ_totp, summ_gwtc_h, summ_freq_h);
+fall_relcon_h = relcont(fall_totp, fall_gwtc_h, fall_freq_h);
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal output\seas_relcon_tp\gwtc_h.mat', 'wint_relcon_h', 'spr_relcon_h', 'summ_relcon_h', 'fall_relcon_h');
+clear wint_relcon_h spr_relcon_h summ_relcon_h fall_relcon_h
+
+% HC
+wint_relcon_hc = relcont(wint_totp, wint_gwtc_hc, wint_freq_hc);
+spr_relcon_hc = relcont(spr_totp, spr_gwtc_hc, spr_freq_hc);
+summ_relcon_hc = relcont(summ_totp, summ_gwtc_hc, summ_freq_hc);
+fall_relcon_hc = relcont(fall_totp, fall_gwtc_hc, fall_freq_hc);
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal output\seas_relcon_tp\gwtc_hc.mat', 'wint_relcon_hc', 'spr_relcon_hc', 'summ_relcon_hc', 'fall_relcon_hc');
+ clear wint_relcon_hc spr_relcon_hc summ_relcon_hc fall_relcon_hc
+
+% HW
+wint_relcon_hw = relcont(wint_totp, wint_gwtc_hw, wint_freq_hw);
+spr_relcon_hw = relcont(spr_totp, spr_gwtc_hw, spr_freq_hw);
+summ_relcon_hw = relcont(summ_totp, summ_gwtc_hw, summ_freq_hw);
+fall_relcon_hw = relcont(fall_totp, fall_gwtc_hw, fall_freq_hw);
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal output\seas_relcon_tp\gwtc_hw.mat', 'wint_relcon_hw', 'spr_relcon_hw', 'summ_relcon_hw', 'fall_relcon_hw');
+clear wint_relcon_hw spr_relcon_hw summ_relcon_hw fall_relcon_hw
+
+% S
+wint_relcon_s = relcont(wint_totp, wint_gwtc_s, wint_freq_s);
+spr_relcon_s = relcont(spr_totp, spr_gwtc_s, spr_freq_s);
+summ_relcon_s = relcont(summ_totp, summ_gwtc_s, summ_freq_s);
+fall_relcon_s = relcont(fall_totp, fall_gwtc_s, fall_freq_s);
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal output\seas_relcon_tp\gwtc_s.mat', 'wint_relcon_s', 'spr_relcon_s', 'summ_relcon_s', 'fall_relcon_s');
+ clear wint_relcon_s spr_relcon_s summ_relcon_s fall_relcon_s
+
+% W
+wint_relcon_w = relcont(wint_totp, wint_gwtc_w, wint_freq_w);
+spr_relcon_w = relcont(spr_totp, spr_gwtc_w, spr_freq_w);
+summ_relcon_w = relcont(summ_totp, summ_gwtc_w, summ_freq_w);
+fall_relcon_w = relcont(fall_totp, fall_gwtc_w, fall_freq_w);
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal output\seas_relcon_tp\gwtc_w.mat', 'wint_relcon_w', 'spr_relcon_w', 'summ_relcon_w', 'fall_relcon_w');
+clear wint_relcon_w spr_relcon_w summ_relcon_w fall_relcon_w
+
+% WFP
+wint_relcon_wfp = relcont(wint_totp, wint_gwtc_wfp, wint_freq_wfp);
+spr_relcon_wfp = relcont(spr_totp, spr_gwtc_wfp, spr_freq_wfp);
+summ_relcon_wfp = relcont(summ_totp, summ_gwtc_wfp, summ_freq_wfp);
+fall_relcon_wfp = relcont(fall_totp, fall_gwtc_wfp, fall_freq_wfp);
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal output\seas_relcon_tp\gwtc_wfp.mat', 'wint_relcon_wfp', 'spr_relcon_wfp', 'summ_relcon_wfp', 'fall_relcon_wfp');
+clear wint_relcon_wfp spr_relcon_wfp summ_relcon_wfp fall_relcon_wfp
+clear fall_totp wint_totp summ_totp spr_totp
