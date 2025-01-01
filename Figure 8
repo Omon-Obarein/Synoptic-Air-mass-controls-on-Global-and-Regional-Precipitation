@@ -1,0 +1,45 @@
+Figure 8: (a) Average monthly relative humidity and (b) Mean sea level pressure (mb) in January and July for West Africa (1940 – 2024). 
+
+%% RELATIVE HUMIDITY
+ a = mean(jan_rh);
+ b = mean(jul_rh);
+
+make_it_tight = true;
+subplot = @(m,n,p) subtightplot(m, n, p, [0.005 0.01], [0.1 0.1], [0.01 1]);
+if ~make_it_tight, clear subplot; end
+
+cm = redblue;
+
+subtightplot(1,2,1)
+Mapper(a, lat, lon, 'mask', 'none', 'colors', cm, 'projection', 'eqdcylin', 'contINT', 15,  'subplot',[0 90],'colorbar1',1);
+title('January', 'FontSize', 20);
+
+ subtightplot(1,2,2)
+Mapper(b, lat, lon, 'mask', 'none', 'colors', cm, 'projection', 'eqdcylin', 'contINT', 15, 'subplot',[0 90],'colorbar1',1);
+title('July', 'FontSize', 20);
+
+cb = colorbar('Location', 'eastoutside', 'Ticks', [0 15 30 45 60 75 90]);
+cb.FontSize = 14;
+cb.TickLabels = {'0', '15', '30', '45', '60', '75', '90'};
+
+%% SEA LEVEL PRESSURE
+ a = mean(slp_jan);
+ b = mean(slp_jul);
+
+make_it_tight = true;
+subplot = @(m,n,p) subtightplot(m, n, p, [0.005 0.01], [0.1 0.1], [0.01 1]);
+if ~make_it_tight, clear subplot; end
+
+cm = redblue;
+
+subtightplot(1,2,1)
+Mapper(a, lat, lon, 'mask', 'none', 'colors', cm, 'projection', 'eqdcylin', 'contINT', 2,  'subplot',[1005 1021],'colorbar1',1);
+title('January', 'FontSize', 20);
+
+ subtightplot(1,2,2)
+Mapper(b, lat, lon, 'mask', 'none', 'colors', cm, 'projection', 'eqdcylin', 'contINT', 2, 'subplot',[1005 1021],'colorbar1',1);
+title('July', 'FontSize', 20);
+
+cb = colorbar('Location', 'eastoutside', 'Ticks', [1005 1007 1009 1011 1013 1015 1017 1019 1021]);
+cb.FontSize = 14;
+cb.TickLabels = {'1005', '1007', '1009', '1011', '1013', '1015', '1017', '1019', '1021'};
