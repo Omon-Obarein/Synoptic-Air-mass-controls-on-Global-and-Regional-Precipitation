@@ -1,0 +1,82 @@
+Figure 4: Correlation between the monthly frequencies of GWTC-2 air masses and monthly precipitation. Only statistically significant (p ≤ 0.05) grid points are mapped.  
+
+% This part of calculates the FDR, creating a binary matrix for statistical significance or not. This binary matrix is multiplied by the correlation coefficient so that only the significant grids (ones) are mapped
+[pFDR, sigs_C] = FDR(pval_C,0.05);
+corr_C2 = sigs_C' .* corr_C;
+clear pFDR
+%%
+
+[pFDR, sigs_W] = FDR(pval_W,0.05);
+corr_W2 = sigs_W' .* corr_W;
+clear pFDR
+
+%%
+[pFDR, sigs_D] = FDR(pval_D,0.05);
+corr_D2 = sigs_D' .* corr_D;
+clear pFDR
+%%
+[pFDR, sigs_T] = FDR(pval_T,0.05);
+corr_T2 = sigs_T' .* corr_T;
+clear pFDR
+%%
+[pFDR, sigs_H] = FDR(pval_H,0.05);
+corr_H2 = sigs_H' .* corr_H;
+clear pFDR
+%%
+[pFDR, sigs_A] = FDR(pval_A,0.05);
+corr_A2 = sigs_A' .* corr_A;
+clear pFDR
+%%
+MAPPING THE CORRELATION
+make_it_tight = true;
+% h=subtightplot(m,n,p,gap,marg_h,marg_w,varargin)
+% Define the parameters for subtightplot
+position = [0.1 0.7]; % Adjust the left and right margins
+margin = [0.1 0.1];   % Adjust the top and bottom margins
+gap = [0.005 0.01];   % Decrease the vertical gap between figures
+
+subplot = @(m, n, p) subtightplot(m, n, p, position, margin, gap);
+
+if ~make_it_tight
+    clear subplot;
+end
+
+% Define A4 paper size in landscape orientation
+figure;
+% set(gcf, 'PaperType', 'A4');
+% set(gcf, 'PaperOrientation', 'landscape');
+% set(gcf, 'PaperUnits', 'centimeters');
+% set(gcf, 'PaperPosition', [0, 0, 29.7, 21.0]); % A4 size in centimeters: 29.7 cm by 21.0 cm for landscape
+
+ subtightplot(3,2,1)
+Mapper(corr_C2, lats, lons, 'mask', 'none', 'colors', 'redblue(10)', 'centerT', 'zero', 'contINT', 0.15, 'title','Cold Types', 'subplot',[-1 1],'colorbar1',0);
+title('Cold Types', 'FontSize', 14);
+
+ subtightplot(3,2,2)
+Mapper(corr_W2, lats, lons, 'mask', 'none', 'colors', 'redblue(10)', 'centerT', 'zero', 'contINT', 0.15, 'title','Warm Types', 'subplot',[-1 1],'colorbar1',0);
+title('Warm Types', 'FontSize', 14);
+
+
+subtightplot(3,2,3)
+Mapper(corr_D2, lats, lons, 'mask', 'none', 'colors', 'redblue(10)', 'centerT', 'zero', 'contINT', 0.15, 'title','Dry Types', 'subplot',[-1 1],'colorbar1',0);
+title('Dry Types', 'FontSize', 14);
+
+
+ subtightplot(3,2,4)
+ Mapper(corr_H2, lats, lons, 'mask', 'none', 'colors', 'redblue(10)', 'centerT', 'zero', 'contINT', 0.15, 'title','Humid Types', 'subplot',[-1 1],'colorbar1',0);
+ title('Humid Types', 'FontSize', 14);
+
+
+subtightplot(3,2,5)
+Mapper(corr_A2, lats, lons,'mask', 'none', 'colors', 'redblue(10)', 'centerT', 'zero', 'contINT', 0.15, 'title','Average Types', 'subplot',[-1 1],'colorbar1',0);
+title('Average Types', 'FontSize', 14);
+
+
+subtightplot(3,2,6)
+Mapper(corr_T2, lats, lons,'mask', 'none', 'colors', 'redblue(10)', 'centerT', 'zero', 'contINT', 0.15, 'title','Frontal Types', 'subplot',[-1 1],'colorbar1',1);
+title('Frontal Types', 'FontSize', 14);
+
+cb = colorbar('Location', 'westoutside', 'Ticks', [-1 -0.8 -0.6 -0.4 -0.2 0 0.2 0.4 0.6 0.8 1]);
+ cb.FontSize = 13;
+  cb.Label.String = 'correlation coefficient';
+cb.TickLabels = {'-1.0', '-0.8', '-0.6', '-0.4', '-0.2', '0.0', '0.2', '0.4', '0.6', '0.8', '1.0'};
