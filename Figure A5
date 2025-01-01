@@ -1,1 +1,62 @@
 
+Figure A5: Frequency of occurrence of GWTC-2 air masses (1979 – 2023) 
+
+%% Mapping FREQUENCY OF OCCURRENCE
+make_it_tight = true;
+subplot = @(m,n,p) subtightplot(m, n, p, [0.005 0.01], [0.1 0.1], [0.01 1]);
+if ~make_it_tight, clear subplot; end
+
+figure
+cm = flipud(parula(11));
+
+
+subtightplot(4,3,1)
+Mapper(freq_hc, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 5, 'title','HC', 'subplot',[0 50],'colorbar1',0);
+title('HC', 'FontSize', 14);
+
+ subtightplot(4,3,2)
+Mapper(freq_h, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 5, 'title','H', 'subplot',[0 50],'colorbar1',0);
+title('H', 'FontSize', 14);
+
+subtightplot(4,3,3)
+Mapper(freq_hw, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 5, 'title','HW', 'subplot',[0 50],'colorbar1',0);
+title('HW', 'FontSize', 14);
+
+subtightplot(4,3,4)
+Mapper(freq_c, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 5, 'title','C', 'subplot',[0 50],'colorbar1',0);
+title('C', 'FontSize', 14);
+
+subtightplot(4,3,5)
+Mapper(freq_s, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 5, 'title','S', 'subplot',[0 50],'colorbar1',0);
+title('S', 'FontSize', 14);
+
+subtightplot(4,3,6)
+Mapper(freq_w, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 5, 'title','W', 'subplot',[0 50],'colorbar1',0);
+title('W', 'FontSize', 14);
+
+subtightplot(4,3,7)
+Mapper(freq_dc, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 5, 'title','DC','subplot',[0 50],'colorbar1',0);
+title('DC', 'FontSize', 14);
+
+subtightplot(4,3,8)
+Mapper(freq_d, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 5, 'title','D', 'subplot',[0 50],'colorbar1',0);
+title('D', 'FontSize', 14);
+
+subtightplot(4,3,9)
+Mapper(freq_dw, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 5, 'title','DW', 'subplot',[0 50],'colorbar1',0);
+title('DW', 'FontSize', 14);
+
+subtightplot(3,4,10)
+
+
+subtightplot(4,3,11)
+Mapper(freq_cfp, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 5, 'title','CFP', 'subplot',[0 50],'colorbar1',1);
+title('CFP', 'FontSize', 14);
+
+% subtightplot(4,3,12)
+% Mapper(freq_wfp, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 5, 'title','WFP', 'subplot',[0 50],'colorbar1',0);
+%  title('WFP', 'FontSize', 14);
+ 
+cb = colorbar('Location', 'westoutside', 'Ticks', [0 5 10 15 20 25 30 35 40 45 50]);
+cb.FontSize = 14;
+cb.TickLabels = {'0%', '5%', '10%', '15%', '20%', '25%', '30%', '35%', '40%', '45%', '50%'};
