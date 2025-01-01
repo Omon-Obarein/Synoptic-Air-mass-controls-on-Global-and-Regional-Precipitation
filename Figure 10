@@ -1,0 +1,31 @@
+
+
+
+y1 = wfp_dpt1{20,1};
+y2 = wfp_slp1{20,1};
+
+y3 = cfp_dpt1a
+y4 = cfp_slp1a
+
+x = 1:8;  % X data points (1 to 10)
+% y1 = wfp_dpt1a;  % Data for the left y-axis
+% y2 = wfp_slp1a;  % Data for the right y-axis
+
+
+% Create a line graph
+figure;  % Create a new figure window
+
+% Plot the first variable on the left y-axis
+yyaxis left;
+plot(x, y1, 'b', 'LineWidth', 2);
+ylabel('Dew point temperature');  % Label for the left y-axis
+
+
+% Plot the second variable on the right y-axis
+yyaxis right;
+plot(x, y2, 'r', 'LineWidth', 2);
+ylabel('Sea level pressure');  % Label for the right y-axis
+xlabel('Time');
+xticklabels({'00z', '03z', '06z', '09z', '12z', '15z', '18z', '21z'})
+grid on;
+set(gcf,'color','w');
