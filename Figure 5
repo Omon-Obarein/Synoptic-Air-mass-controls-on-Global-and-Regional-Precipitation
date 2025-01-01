@@ -1,0 +1,456 @@
+Figure 5: Correlation between monthly frequencies of each GWTC-2 AMs and monthly precipitation in (a) Köppen climate regions, and (b) Seasons.
+
+%% to divide GWTC-2 monthly counts into four seasons
+
+% get seasonal months
+
+t_era = datetime(1979,1,1):calmonths(1):datetime(2023,12,31);
+t_month = datevec(t_era);
+% 
+winter_month = (t_month(:, 2) == 12) | (t_month(:, 2) == 1) | (t_month(:, 2) == 2); % DJF  
+spring_month = (t_month(:, 2) == 3) | (t_month(:, 2) == 4) | (t_month(:, 2) == 5); % MAM 
+summer_month = (t_month(:, 2) == 6) | (t_month(:, 2) == 7) | (t_month(:, 2) == 8); % JJA 
+fall_month = (t_month(:, 2) == 9) | (t_month(:, 2) == 10) | (t_month(:, 2) == 11); % SON 
+%%
+
+% WFP
+wint_gwtc_wfp  = mon_gwtc_wfp(winter_month == 1, :);
+spr_gwtc_wfp = mon_gwtc_wfp(spring_month == 1, :);
+summ_gwtc_wfp = mon_gwtc_wfp(summer_month == 1, :);
+fall_gwtc_wfp = mon_gwtc_wfp(fall_month == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\monthly\gwtc_wfp.mat', 'wint_gwtc_wfp','spr_gwtc_wfp','summ_gwtc_wfp','fall_gwtc_wfp','-v7.3');
+clear mon_gwtc_wfp wint_gwtc_wfp spr_gwtc_wfp summ_gwtc_wfp fall_gwtc_wfp
+
+% W
+wint_gwtc_w  = mon_gwtc_w(winter_month == 1, :);
+spr_gwtc_w = mon_gwtc_w(spring_month == 1, :);
+summ_gwtc_w = mon_gwtc_w(summer_month == 1, :);
+fall_gwtc_w = mon_gwtc_w(fall_month == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\monthly\gwtc_w.mat', 'wint_gwtc_w','spr_gwtc_w','summ_gwtc_w','fall_gwtc_w','-v7.3');
+clear mon_gwtc_w wint_gwtc_w spr_gwtc_w summ_gwtc_w fall_gwtc_w
+
+% S
+wint_gwtc_s  = mon_gwtc_s(winter_month == 1, :);
+spr_gwtc_s = mon_gwtc_s(spring_month == 1, :);
+summ_gwtc_s = mon_gwtc_s(summer_month == 1, :);
+fall_gwtc_s = mon_gwtc_s(fall_month == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\monthly\gwtc_s.mat', 'wint_gwtc_s','spr_gwtc_s','summ_gwtc_s','fall_gwtc_s','-v7.3');
+clear mon_gwtc_s wint_gwtc_s spr_gwtc_s summ_gwtc_s fall_gwtc_s
+
+% HW
+wint_gwtc_hw  = mon_gwtc_hw(winter_month == 1, :);
+spr_gwtc_hw = mon_gwtc_hw(spring_month == 1, :);
+summ_gwtc_hw = mon_gwtc_hw(summer_month == 1, :);
+fall_gwtc_hw = mon_gwtc_hw(fall_month == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\monthly\gwtc_hw.mat', 'wint_gwtc_hw','spr_gwtc_hw','summ_gwtc_hw','fall_gwtc_hw','-v7.3');
+clear mon_gwtc_hw wint_gwtc_hw spr_gwtc_hw summ_gwtc_hw fall_gwtc_hw
+
+% HC
+wint_gwtc_hc  = mon_gwtc_hc(winter_month == 1, :);
+spr_gwtc_hc = mon_gwtc_hc(spring_month == 1, :);
+summ_gwtc_hc = mon_gwtc_hc(summer_month == 1, :);
+fall_gwtc_hc = mon_gwtc_hc(fall_month == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\monthly\gwtc_hc.mat', 'wint_gwtc_hc','spr_gwtc_hc','summ_gwtc_hc','fall_gwtc_hc','-v7.3');
+clear mon_gwtc_hc wint_gwtc_hc spr_gwtc_hc summ_gwtc_hc fall_gwtc_hc
+
+% H
+wint_gwtc_h  = mon_gwtc_h(winter_month == 1, :);
+spr_gwtc_h = mon_gwtc_h(spring_month == 1, :);
+summ_gwtc_h = mon_gwtc_h(summer_month == 1, :);
+fall_gwtc_h = mon_gwtc_h(fall_month == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\monthly\gwtc_h.mat', 'wint_gwtc_h','spr_gwtc_h','summ_gwtc_h','fall_gwtc_h','-v7.3');
+clear mon_gwtc_h wint_gwtc_h spr_gwtc_h summ_gwtc_h fall_gwtc_h
+
+% DW
+wint_gwtc_dw  = mon_gwtc_dw(winter_month == 1, :);
+spr_gwtc_dw = mon_gwtc_dw(spring_month == 1, :);
+summ_gwtc_dw = mon_gwtc_dw(summer_month == 1, :);
+fall_gwtc_dw = mon_gwtc_dw(fall_month == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\monthly\gwtc_dw.mat', 'wint_gwtc_dw','spr_gwtc_dw','summ_gwtc_dw','fall_gwtc_dw','-v7.3');
+clear mon_gwtc_dw wint_gwtc_dw spr_gwtc_dw summ_gwtc_dw fall_gwtc_dw
+
+% DC
+wint_gwtc_dc  = mon_gwtc_dc(winter_month == 1, :);
+spr_gwtc_dc = mon_gwtc_dc(spring_month == 1, :);
+summ_gwtc_dc = mon_gwtc_dc(summer_month == 1, :);
+fall_gwtc_dc = mon_gwtc_dc(fall_month == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\monthly\gwtc_dc.mat', 'wint_gwtc_dc','spr_gwtc_dc','summ_gwtc_dc','fall_gwtc_dc','-v7.3');
+clear mon_gwtc_dc wint_gwtc_dc spr_gwtc_dc summ_gwtc_dc fall_gwtc_dc
+
+% D
+wint_gwtc_d  = mon_gwtc_d(winter_month == 1, :);
+spr_gwtc_d = mon_gwtc_d(spring_month == 1, :);
+summ_gwtc_d = mon_gwtc_d(summer_month == 1, :);
+fall_gwtc_d = mon_gwtc_d(fall_month == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\monthly\gwtc_d.mat', 'wint_gwtc_d','spr_gwtc_d','summ_gwtc_d','fall_gwtc_d','-v7.3');
+clear mon_gwtc_d wint_gwtc_d spr_gwtc_d summ_gwtc_d fall_gwtc_d
+
+% CFP
+wint_gwtc_cfp  = mon_gwtc_cfp(winter_month == 1, :);
+spr_gwtc_cfp = mon_gwtc_cfp(spring_month == 1, :);
+summ_gwtc_cfp = mon_gwtc_cfp(summer_month == 1, :);
+fall_gwtc_cfp = mon_gwtc_cfp(fall_month == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\monthly\gwtc_cfp.mat', 'wint_gwtc_cfp','spr_gwtc_cfp','summ_gwtc_cfp','fall_gwtc_cfp','-v7.3');
+clear mon_gwtc_cfp wint_gwtc_cfp spr_gwtc_cfp summ_gwtc_cfp fall_gwtc_cfp
+
+% C
+wint_gwtc_c  = mon_gwtc_c(winter_month == 1, :);
+spr_gwtc_c = mon_gwtc_c(spring_month == 1, :);
+summ_gwtc_c = mon_gwtc_c(summer_month == 1, :);
+fall_gwtc_c = mon_gwtc_c(fall_month == 1, :);
+
+save('C:\Users\oobarein\Desktop\Dissertation\Seasonal_data\monthly\gwtc_c.mat', 'wint_gwtc_c','spr_gwtc_c','summ_gwtc_c','fall_gwtc_c','-v7.3');
+clear mon_gwtc_c wint_gwtc_c spr_gwtc_c summ_gwtc_c fall_gwtc_c
+
+
+%% to divide GWTC-2 monthly counts into six climate regions
+
+% WFP
+cold_gwtc_wfp  = mon_gwtc_wfp(:, cold == 1);
+dry_gwtc_wfp = mon_gwtc_wfp(:, dry == 1);
+high_gwtc_wfp = mon_gwtc_wfp(:, high == 1);
+mild_gwtc_wfp = mon_gwtc_wfp(:, mild == 1);
+polar_gwtc_wfp = mon_gwtc_wfp(:, polar == 1);
+trop_gwtc_wfp = mon_gwtc_wfp(:, trop == 1);
+hstrop_gwtc_wfp  = mon_gwtc_wfp(:, hstrop == 1);
+med_gwtc_wfp = mon_gwtc_wfp(:, med == 1);
+mwc_gwtc_wfp = mon_gwtc_wfp(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\monthly\gwtc_wfp.mat', 'cold_gwtc_wfp','dry_gwtc_wfp','high_gwtc_wfp','mild_gwtc_wfp', 'polar_gwtc_wfp', 'trop_gwtc_wfp', 'hstrop_gwtc_wfp','med_gwtc_wfp','mwc_gwtc_wfp','-v7.3');
+ clear mon_gwtc_wfp cold_gwtc_wfp dry_gwtc_wfp high_gwtc_wfp mild_gwtc_wfp polar_gwtc_wfp trop_gwtc_wfp hstrop_gwtc_wfp med_gwtc_wfp mwc_gwtc_wfp
+
+
+
+ % W
+cold_gwtc_w  = mon_gwtc_w(:, cold == 1);
+dry_gwtc_w = mon_gwtc_w(:, dry == 1);
+high_gwtc_w = mon_gwtc_w(:, high == 1);
+mild_gwtc_w = mon_gwtc_w(:, mild == 1);
+polar_gwtc_w = mon_gwtc_w(:, polar == 1);
+trop_gwtc_w = mon_gwtc_w(:, trop == 1);
+hstrop_gwtc_w  = mon_gwtc_w(:, hstrop == 1);
+med_gwtc_w = mon_gwtc_w(:, med == 1);
+mwc_gwtc_w = mon_gwtc_w(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\monthly\gwtc_w.mat', 'cold_gwtc_w','dry_gwtc_w','high_gwtc_w','mild_gwtc_w', 'polar_gwtc_w', 'trop_gwtc_w', 'hstrop_gwtc_w','med_gwtc_w','mwc_gwtc_w', '-v7.3');
+ clear mon_gwtc_w cold_gwtc_w dry_gwtc_w high_gwtc_w mild_gwtc_w polar_gwtc_w trop_gwtc_w hstrop_gwtc_w med_gwtc_w mwc_gwtc_w
+
+ % S
+cold_gwtc_s  = mon_gwtc_s(:, cold == 1);
+dry_gwtc_s = mon_gwtc_s(:, dry == 1);
+high_gwtc_s = mon_gwtc_s(:, high == 1);
+mild_gwtc_s = mon_gwtc_s(:, mild == 1);
+polar_gwtc_s = mon_gwtc_s(:, polar == 1);
+trop_gwtc_s = mon_gwtc_s(:, trop == 1);
+hstrop_gwtc_s  = mon_gwtc_s(:, hstrop == 1);
+med_gwtc_s = mon_gwtc_s(:, med == 1);
+mwc_gwtc_s = mon_gwtc_s(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\monthly\gwtc_s.mat', 'cold_gwtc_s','dry_gwtc_s','high_gwtc_s','mild_gwtc_s', 'polar_gwtc_s', 'trop_gwtc_s', 'hstrop_gwtc_s','med_gwtc_s','mwc_gwtc_s', '-v7.3');
+ clear mon_gwtc_s cold_gwtc_s dry_gwtc_s high_gwtc_s mild_gwtc_s polar_gwtc_s trop_gwtc_s hstrop_gwtc_s med_gwtc_s mwc_gwtc_s
+
+
+
+ % HW
+cold_gwtc_hw  = mon_gwtc_hw(:, cold == 1);
+dry_gwtc_hw = mon_gwtc_hw(:, dry == 1);
+high_gwtc_hw = mon_gwtc_hw(:, high == 1);
+mild_gwtc_hw = mon_gwtc_hw(:, mild == 1);
+polar_gwtc_hw = mon_gwtc_hw(:, polar == 1);
+trop_gwtc_hw = mon_gwtc_hw(:, trop == 1);
+hstrop_gwtc_hw  = mon_gwtc_hw(:, hstrop == 1);
+med_gwtc_hw = mon_gwtc_hw(:, med == 1);
+mwc_gwtc_hw = mon_gwtc_hw(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\monthly\gwtc_hw.mat', 'cold_gwtc_hw','dry_gwtc_hw','high_gwtc_hw','mild_gwtc_hw', 'polar_gwtc_hw', 'trop_gwtc_hw', 'hstrop_gwtc_hw','med_gwtc_hw','mwc_gwtc_hw', '-v7.3');
+ clear mon_gwtc_hw cold_gwtc_hw dry_gwtc_hw high_gwtc_hw mild_gwtc_hw polar_gwtc_hw trop_gwtc_hw hstrop_gwtc_hw med_gwtc_hw mwc_gwtc_hw
+
+
+%  % HC
+cold_gwtc_hc  = mon_gwtc_hc(:, cold == 1);
+dry_gwtc_hc = mon_gwtc_hc(:, dry == 1);
+high_gwtc_hc = mon_gwtc_hc(:, high == 1);
+mild_gwtc_hc = mon_gwtc_hc(:, mild == 1);
+polar_gwtc_hc = mon_gwtc_hc(:, polar == 1);
+trop_gwtc_hc = mon_gwtc_hc(:, trop == 1);
+hstrop_gwtc_hc  = mon_gwtc_hc(:, hstrop == 1);
+med_gwtc_hc = mon_gwtc_hc(:, med == 1);
+mwc_gwtc_hc = mon_gwtc_hc(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\monthly\gwtc_hc.mat', 'cold_gwtc_hc','dry_gwtc_hc','high_gwtc_hc','mild_gwtc_hc', 'polar_gwtc_hc', 'trop_gwtc_hc', 'hstrop_gwtc_hc','med_gwtc_hc','mwc_gwtc_hc', '-v7.3');
+ clear mon_gwtc_hc cold_gwtc_hc dry_gwtc_hc high_gwtc_hc mild_gwtc_hc polar_gwtc_hc trop_gwtc_hc hstrop_gwtc_hc med_gwtc_hc mwc_gwtc_hc
+
+
+
+ % H
+cold_gwtc_h  = mon_gwtc_h(:, cold == 1);
+dry_gwtc_h = mon_gwtc_h(:, dry == 1);
+high_gwtc_h = mon_gwtc_h(:, high == 1);
+mild_gwtc_h = mon_gwtc_h(:, mild == 1);
+polar_gwtc_h = mon_gwtc_h(:, polar == 1);
+trop_gwtc_h = mon_gwtc_h(:, trop == 1);
+hstrop_gwtc_h  = mon_gwtc_h(:, hstrop == 1);
+med_gwtc_h = mon_gwtc_h(:, med == 1);
+mwc_gwtc_h = mon_gwtc_h(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\monthly\gwtc_h.mat', 'cold_gwtc_h','dry_gwtc_h','high_gwtc_h','mild_gwtc_h', 'polar_gwtc_h', 'trop_gwtc_h', 'hstrop_gwtc_h','med_gwtc_h','mwc_gwtc_h', '-v7.3');
+ clear mon_gwtc_h cold_gwtc_h dry_gwtc_h high_gwtc_h mild_gwtc_h polar_gwtc_h trop_gwtc_h hstrop_gwtc_h med_gwtc_h mwc_gwtc_h
+
+
+
+%   DW
+cold_gwtc_dw  = mon_gwtc_dw(:, cold == 1);
+dry_gwtc_dw = mon_gwtc_dw(:, dry == 1);
+high_gwtc_dw = mon_gwtc_dw(:, high == 1);
+mild_gwtc_dw = mon_gwtc_dw(:, mild == 1);
+polar_gwtc_dw = mon_gwtc_dw(:, polar == 1);
+trop_gwtc_dw = mon_gwtc_dw(:, trop == 1);
+hstrop_gwtc_dw  = mon_gwtc_dw(:, hstrop == 1);
+med_gwtc_dw = mon_gwtc_dw(:, med == 1);
+mwc_gwtc_dw = mon_gwtc_dw(:, mwc == 1);
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\monthly\gwtc_dw.mat', 'cold_gwtc_dw','dry_gwtc_dw','high_gwtc_dw','mild_gwtc_dw', 'polar_gwtc_dw', 'trop_gwtc_dw', 'hstrop_gwtc_dw','med_gwtc_dw','mwc_gwtc_dw', '-v7.3');
+ clear mon_gwtc_dw cold_gwtc_dw dry_gwtc_dw high_gwtc_dw mild_gwtc_dw polar_gwtc_dw trop_gwtc_dw hstrop_gwtc_dw med_gwtc_dw mwc_gwtc_dw
+
+
+
+%  % DC
+cold_gwtc_dc  = mon_gwtc_dc(:, cold == 1);
+dry_gwtc_dc = mon_gwtc_dc(:, dry == 1);
+high_gwtc_dc = mon_gwtc_dc(:, high == 1);
+mild_gwtc_dc = mon_gwtc_dc(:, mild == 1);
+polar_gwtc_dc = mon_gwtc_dc(:, polar == 1);
+trop_gwtc_dc = mon_gwtc_dc(:, trop == 1);
+hstrop_gwtc_dc  = mon_gwtc_dc(:, hstrop == 1);
+med_gwtc_dc = mon_gwtc_dc(:, med == 1);
+mwc_gwtc_dc = mon_gwtc_dc(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\monthly\gwtc_dc.mat', 'cold_gwtc_dc','dry_gwtc_dc','high_gwtc_dc','mild_gwtc_dc', 'polar_gwtc_dc', 'trop_gwtc_dc', 'hstrop_gwtc_dc','med_gwtc_dc','mwc_gwtc_dc', '-v7.3');
+ clear mon_gwtc_dc cold_gwtc_dc dry_gwtc_dc high_gwtc_dc mild_gwtc_dc polar_gwtc_dc trop_gwtc_dc hstrop_gwtc_dc med_gwtc_dc mwc_gwtc_dc
+
+
+%  % D
+cold_gwtc_d  = mon_gwtc_d(:, cold == 1);
+dry_gwtc_d = mon_gwtc_d(:, dry == 1);
+high_gwtc_d = mon_gwtc_d(:, high == 1);
+mild_gwtc_d = mon_gwtc_d(:, mild == 1);
+polar_gwtc_d = mon_gwtc_d(:, polar == 1);
+trop_gwtc_d = mon_gwtc_d(:, trop == 1);
+hstrop_gwtc_d  = mon_gwtc_d(:, hstrop == 1);
+med_gwtc_d = mon_gwtc_d(:, med == 1);
+mwc_gwtc_d = mon_gwtc_d(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\monthly\gwtc_d.mat', 'cold_gwtc_d','dry_gwtc_d','high_gwtc_d','mild_gwtc_d', 'polar_gwtc_d', 'trop_gwtc_d', 'hstrop_gwtc_d','med_gwtc_d','mwc_gwtc_d', '-v7.3');
+ clear mon_gwtc_d cold_gwtc_d dry_gwtc_d high_gwtc_d mild_gwtc_d polar_gwtc_d trop_gwtc_d hstrop_gwtc_d med_gwtc_d mwc_gwtc_d
+
+
+
+%  % CFP
+cold_gwtc_cfp  = mon_gwtc_cfp(:, cold == 1);
+dry_gwtc_cfp = mon_gwtc_cfp(:, dry == 1);
+high_gwtc_cfp = mon_gwtc_cfp(:, high == 1);
+mild_gwtc_cfp = mon_gwtc_cfp(:, mild == 1);
+polar_gwtc_cfp = mon_gwtc_cfp(:, polar == 1);
+trop_gwtc_cfp = mon_gwtc_cfp(:, trop == 1);
+hstrop_gwtc_cfp  = mon_gwtc_cfp(:, hstrop == 1);
+med_gwtc_cfp = mon_gwtc_cfp(:, med == 1);
+mwc_gwtc_cfp = mon_gwtc_cfp(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\monthly\gwtc_cfp.mat', 'cold_gwtc_cfp','dry_gwtc_cfp','high_gwtc_cfp','mild_gwtc_cfp', 'polar_gwtc_cfp', 'trop_gwtc_cfp', 'hstrop_gwtc_cfp','med_gwtc_cfp','mwc_gwtc_cfp', '-v7.3');
+ clear mon_gwtc_cfp cold_gwtc_cfp dry_gwtc_cfp high_gwtc_cfp mild_gwtc_cfp polar_gwtc_cfp trop_gwtc_cfp hstrop_gwtc_cfp med_gwtc_cfp mwc_gwtc_cfp
+
+
+
+%  % C
+cold_gwtc_c  = mon_gwtc_c(:, cold == 1);
+dry_gwtc_c = mon_gwtc_c(:, dry == 1);
+high_gwtc_c = mon_gwtc_c(:, high == 1);
+mild_gwtc_c = mon_gwtc_c(:, mild == 1);
+polar_gwtc_c = mon_gwtc_c(:, polar == 1);
+trop_gwtc_c = mon_gwtc_c(:, trop == 1);
+hstrop_gwtc_c  = mon_gwtc_c(:, hstrop == 1);
+med_gwtc_c = mon_gwtc_c(:, med == 1);
+mwc_gwtc_c = mon_gwtc_c(:, mwc == 1);
+
+ save('C:\Users\oobarein\Desktop\Dissertation\Regional data\monthly\gwtc_c.mat', 'cold_gwtc_c','dry_gwtc_c','high_gwtc_c','mild_gwtc_c', 'polar_gwtc_c', 'trop_gwtc_c', 'hstrop_gwtc_c','med_gwtc_c','mwc_gwtc_c', '-v7.3');
+ clear mon_gwtc_c cold_gwtc_c dry_gwtc_c high_gwtc_c mild_gwtc_c polar_gwtc_c trop_gwtc_c hstrop_gwtc_c med_gwtc_c mwc_gwtc_c
+
+% to divide monthly total precipitation into six climate regions
+cold_totp  = mon_precip(:, cold == 1);
+dry_totp = mon_precip(:, dry == 1);
+high_totp = mon_precip(:, high == 1);
+mild_totp = mon_precip(:, mild == 1);
+polar_totp = mon_precip(:, polar == 1);
+trop_totp = mon_precip(:, trop == 1);
+hstrop_totp  = mon_precip(:, hstrop == 1);
+med_totp = mon_precip(:, med == 1);
+mwc_totp = mon_precip(:, mwc == 1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%% 1.  "Cold AMs" 
+[trop_C, tpval_C] = computeGridCorrelations(trop_gwtc_c,  trop_wd); 
+[dry_C, dpval_C] = computeGridCorrelations(dry_gwtc_c,  dry_wd); 
+[mild_C, mpval_C] = computeGridCorrelations(mild_gwtc_c,  mild_wd); 
+[cold_C, cpval_C] = computeGridCorrelations(cold_gwtc_c,  cold_wd); 
+[polar_C, ppval_C] = computeGridCorrelations(polar_gwtc_c,  polar_wd); 
+[high_C, hpval_C] = computeGridCorrelations(high_gwtc_c,  high_wd); 
+[hstrop_C, hspval_C] = computeGridCorrelations(hstrop_gwtc_c,  hstrop_wd); 
+[med_C, medpval_C] = computeGridCorrelations(med_gwtc_c,  med_wd); 
+[mwc_C, mwcpval_C] = computeGridCorrelations(mwc_gwtc_c,  mwc_wd); 
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_corr_wd\gwtc_C.mat', 'trop_C', 'dry_C', 'mild_C', 'cold_C', 'polar_C', 'high_C', 'tpval_C', 'dpval_C', 'mpval_C', 'cpval_C', 'ppval_C', 'hpval_C','hstrop_C', 'hspval_C', 'med_C', 'medpval_C', 'mwc_C', 'mwcpval_C');
+clear trop_C dry_C mild_C cold_C polar_C high_C tpval_C dpval_C mpval_C cpval_C ppval_C hpval_C hstrop_C hspval_C med_C medpval_C mwc_C mwcpval_C
+ 
+% 2.  "Cold Front Passage AMs" 
+[trop_CFP, tpval_CFP] = computeGridCorrelations(trop_gwtc_cfp,  trop_wd); 
+[dry_CFP, dpval_CFP] = computeGridCorrelations(dry_gwtc_cfp,  dry_wd); 
+[mild_CFP, mpval_CFP] = computeGridCorrelations(mild_gwtc_cfp,  mild_wd); 
+[cold_CFP, cpval_CFP] = computeGridCorrelations(cold_gwtc_cfp,  cold_wd); 
+[polar_CFP, ppval_CFP] = computeGridCorrelations(polar_gwtc_cfp,  polar_wd); 
+[high_CFP, hpval_CFP] = computeGridCorrelations(high_gwtc_cfp,  high_wd);
+[hstrop_CFP, hspval_CFP] = computeGridCorrelations(hstrop_gwtc_cfp,  hstrop_wd); 
+[med_CFP, medpval_CFP] = computeGridCorrelations(med_gwtc_cfp,  med_wd); 
+[mwc_CFP, mwcpval_CFP] = computeGridCorrelations(mwc_gwtc_cfp,  mwc_wd); 
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_corr_wd\gwtc_CFP.mat', 'trop_CFP', 'dry_CFP', 'mild_CFP', 'cold_CFP', 'polar_CFP', 'high_CFP', 'tpval_CFP', 'dpval_CFP', 'mpval_CFP', 'cpval_CFP', 'ppval_CFP', 'hpval_CFP','hstrop_CFP', 'hspval_CFP', 'med_CFP', 'medpval_CFP', 'mwc_CFP', 'mwcpval_CFP');
+clear trop_CFP dry_CFP mild_CFP cold_CFP polar_CFP high_CFP tpval_CFP dpval_CFP mpval_CFP cpval_CFP ppval_CFP hpval_CFP hstrop_CFP hspval_CFP med_CFP medpval_CFP mwc_CFP mwcpval_CFP
+ 
+% 3.  "Dry AMs" 
+[trop_D, tpval_D] = computeGridCorrelations(trop_gwtc_d,  trop_wd); 
+[dry_D, dpval_D] = computeGridCorrelations(dry_gwtc_d,  dry_wd); 
+[mild_D, mpval_D] = computeGridCorrelations(mild_gwtc_d,  mild_wd); 
+[cold_D, cpval_D] = computeGridCorrelations(cold_gwtc_d,  cold_wd); 
+[polar_D, ppval_D] = computeGridCorrelations(polar_gwtc_d,  polar_wd); 
+[high_D, hpval_D] = computeGridCorrelations(high_gwtc_d,  high_wd); 
+[hstrop_D, hspval_D] = computeGridCorrelations(hstrop_gwtc_d,  hstrop_wd); 
+[med_D, medpval_D] = computeGridCorrelations(med_gwtc_d,  med_wd); 
+[mwc_D, mwcpval_D] = computeGridCorrelations(mwc_gwtc_d,  mwc_wd);
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_corr_wd\gwtc_D.mat', 'trop_D', 'dry_D', 'mild_D', 'cold_D', 'polar_D', 'high_D', 'tpval_D', 'dpval_D', 'mpval_D', 'cpval_D', 'ppval_D', 'hpval_D','hstrop_D', 'hspval_D', 'med_D', 'medpval_D', 'mwc_D', 'mwcpval_D');
+clear trop_D dry_D mild_D cold_D polar_D high_D tpval_D dpval_D mpval_D cpval_D ppval_D hpval_D hstrop_D hspval_D med_D medpval_D mwc_D mwcpval_D
+ 
+% 4. "Dry Cold AMs" 
+[trop_DC, tpval_DC] = computeGridCorrelations(trop_gwtc_dc,  trop_wd); 
+[dry_DC, dpval_DC] = computeGridCorrelations(dry_gwtc_dc,  dry_wd); 
+[mild_DC, mpval_DC] = computeGridCorrelations(mild_gwtc_dc,  mild_wd); 
+[cold_DC, cpval_DC] = computeGridCorrelations(cold_gwtc_dc,  cold_wd); 
+[polar_DC, ppval_DC] = computeGridCorrelations(polar_gwtc_dc,  polar_wd); 
+[high_DC, hpval_DC] = computeGridCorrelations(high_gwtc_dc,  high_wd); 
+[hstrop_DC, hspval_DC] = computeGridCorrelations(hstrop_gwtc_dc,  hstrop_wd); 
+[med_DC, medpval_DC] = computeGridCorrelations(med_gwtc_dc,  med_wd); 
+[mwc_DC, mwcpval_DC] = computeGridCorrelations(mwc_gwtc_dc,  mwc_wd);
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_corr_wd\gwtc_DC.mat', 'trop_DC', 'dry_DC', 'mild_DC', 'cold_DC', 'polar_DC', 'high_DC', 'tpval_DC', 'dpval_DC', 'mpval_DC', 'cpval_DC', 'ppval_DC', 'hpval_DC','hstrop_DC', 'hspval_DC', 'med_DC', 'medpval_DC', 'mwc_DC', 'mwcpval_DC');
+clear trop_DC dry_DC mild_DC cold_DC polar_DC high_DC tpval_DC dpval_DC mpval_DC cpval_DC ppval_DC hpval_DC hstrop_DC hspval_DC med_DC medpval_DC mwc_DC mwcpval_DC
+ 
+% 5.  "Dry Warm AMs" 
+[trop_DW, tpval_DW] = computeGridCorrelations(trop_gwtc_dw,  trop_wd); 
+[dry_DW, dpval_DW] = computeGridCorrelations(dry_gwtc_dw,  dry_wd); 
+[mild_DW, mpval_DW] = computeGridCorrelations(mild_gwtc_dw,  mild_wd); 
+[cold_DW, cpval_DW] = computeGridCorrelations(cold_gwtc_dw,  cold_wd); 
+[polar_DW, ppval_DW] = computeGridCorrelations(polar_gwtc_dw,  polar_wd); 
+[high_DW, hpval_DW] = computeGridCorrelations(high_gwtc_dw,  high_wd); 
+[hstrop_DW, hspval_DW] = computeGridCorrelations(hstrop_gwtc_dw,  hstrop_wd); 
+[med_DW, medpval_DW] = computeGridCorrelations(med_gwtc_dw,  med_wd); 
+[mwc_DW, mwcpval_DW] = computeGridCorrelations(mwc_gwtc_dw,  mwc_wd);
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_corr_wd\gwtc_DW.mat', 'trop_DW', 'dry_DW', 'mild_DW', 'cold_DW', 'polar_DW', 'high_DW', 'tpval_DW', 'dpval_DW', 'mpval_DW', 'cpval_DW', 'ppval_DW', 'hpval_DW','hstrop_DW', 'hspval_DW', 'med_DW', 'medpval_DW', 'mwc_DW', 'mwcpval_DW');
+clear trop_DW dry_DW mild_DW cold_DW polar_DW high_DW tpval_DW dpval_DW mpval_DW cpval_DW ppval_DW hpval_DW hstrop_DW hspval_DW med_DW medpval_DW mwc_DW mwcpval_DW
+
+% 6.  "Humid AMs" 
+[trop_H, tpval_H] = computeGridCorrelations(trop_gwtc_h,  trop_wd); 
+[dry_H, dpval_H] = computeGridCorrelations(dry_gwtc_h,  dry_wd); 
+[mild_H, mpval_H] = computeGridCorrelations(mild_gwtc_h,  mild_wd); 
+[cold_H, cpval_H] = computeGridCorrelations(cold_gwtc_h,  cold_wd); 
+[polar_H, ppval_H] = computeGridCorrelations(polar_gwtc_h,  polar_wd); 
+[high_H, hpval_H] = computeGridCorrelations(high_gwtc_h,  high_wd);
+[hstrop_H, hspval_H] = computeGridCorrelations(hstrop_gwtc_h,  hstrop_wd); 
+[med_H, medpval_H] = computeGridCorrelations(med_gwtc_h,  med_wd); 
+[mwc_H, mwcpval_H] = computeGridCorrelations(mwc_gwtc_h,  mwc_wd);
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_corr_wd\gwtc_H.mat', 'trop_H', 'dry_H', 'mild_H', 'cold_H', 'polar_H', 'high_H', 'tpval_H', 'dpval_H', 'mpval_H', 'cpval_H', 'ppval_H', 'hpval_H','hstrop_H', 'hspval_H', 'med_H', 'medpval_H', 'mwc_H', 'mwcpval_H');
+clear trop_H dry_H mild_H cold_H polar_H high_H tpval_H dpval_H mpval_H cpval_H ppval_H hpval_H hstrop_H hspval_H med_H medpval_H mwc_H mwcpval_H
+
+% 7.  "Humid Cold AMs" 
+[trop_HC, tpval_HC] = computeGridCorrelations(trop_gwtc_hc,  trop_wd); 
+[dry_HC, dpval_HC] = computeGridCorrelations(dry_gwtc_hc,  dry_wd); 
+[mild_HC, mpval_HC] = computeGridCorrelations(mild_gwtc_hc,  mild_wd); 
+[cold_HC, cpval_HC] = computeGridCorrelations(cold_gwtc_hc,  cold_wd); 
+[polar_HC, ppval_HC] = computeGridCorrelations(polar_gwtc_hc,  polar_wd); 
+[high_HC, hpval_HC] = computeGridCorrelations(high_gwtc_hc,  high_wd); 
+[hstrop_HC, hspval_HC] = computeGridCorrelations(hstrop_gwtc_hc,  hstrop_wd); 
+[med_HC, medpval_HC] = computeGridCorrelations(med_gwtc_hc,  med_wd); 
+[mwc_HC, mwcpval_HC] = computeGridCorrelations(mwc_gwtc_hc,  mwc_wd);
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_corr_wd\gwtc_HC.mat', 'trop_HC', 'dry_HC', 'mild_HC', 'cold_HC', 'polar_HC', 'high_HC', 'tpval_HC', 'dpval_HC', 'mpval_HC', 'cpval_HC', 'ppval_HC', 'hpval_HC','hstrop_HC', 'hspval_HC', 'med_HC', 'medpval_HC', 'mwc_HC', 'mwcpval_HC');
+clear trop_HC dry_HC mild_HC cold_HC polar_HC high_HC tpval_HC dpval_HC mpval_HC cpval_HC ppval_HC hpval_HC hstrop_HC hspval_HC med_HC medpval_HC mwc_HC mwcpval_HC
+
+% 8. "Humid Warm AMs" 
+[trop_HW, tpval_HW] = computeGridCorrelations(trop_gwtc_hw,  trop_wd); 
+[dry_HW, dpval_HW] = computeGridCorrelations(dry_gwtc_hw,  dry_wd); 
+[mild_HW, mpval_HW] = computeGridCorrelations(mild_gwtc_hw,  mild_wd); 
+[cold_HW, cpval_HW] = computeGridCorrelations(cold_gwtc_hw,  cold_wd); 
+[polar_HW, ppval_HW] = computeGridCorrelations(polar_gwtc_hw,  polar_wd); 
+[high_HW, hpval_HW] = computeGridCorrelations(high_gwtc_hw,  high_wd); 
+[hstrop_HW, hspval_HW] = computeGridCorrelations(hstrop_gwtc_hw,  hstrop_wd); 
+[med_HW, medpval_HW] = computeGridCorrelations(med_gwtc_hw,  med_wd); 
+[mwc_HW, mwcpval_HW] = computeGridCorrelations(mwc_gwtc_hw,  mwc_wd);
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_corr_wd\gwtc_HW.mat', 'trop_HW', 'dry_HW', 'mild_HW', 'cold_HW', 'polar_HW', 'high_HW', 'tpval_HW', 'dpval_HW', 'mpval_HW', 'cpval_HW', 'ppval_HW', 'hpval_HW','hstrop_HW', 'hspval_HW', 'med_HW', 'medpval_HW', 'mwc_HW', 'mwcpval_HW');
+clear trop_HW dry_HW mild_HW cold_HW polar_HW high_HW tpval_HW dpval_HW mpval_HW cpval_HW ppval_HW hpval_HW hstrop_HW hspval_HW med_HW medpval_HW mwc_HW mwcpval_HW
+
+% 9.  "Seasonal AMs" 
+[trop_S, tpval_S] = computeGridCorrelations(trop_gwtc_s,  trop_wd); 
+[dry_S, dpval_S] = computeGridCorrelations(dry_gwtc_s,  dry_wd); 
+[mild_S, mpval_S] = computeGridCorrelations(mild_gwtc_s,  mild_wd); 
+[cold_S, cpval_S] = computeGridCorrelations(cold_gwtc_s,  cold_wd); 
+[polar_S, ppval_S] = computeGridCorrelations(polar_gwtc_s,  polar_wd); 
+[high_S, hpval_S] = computeGridCorrelations(high_gwtc_s,  high_wd);
+[hstrop_S, hspval_S] = computeGridCorrelations(hstrop_gwtc_s,  hstrop_wd); 
+[med_S, medpval_S] = computeGridCorrelations(med_gwtc_s,  med_wd); 
+[mwc_S, mwcpval_S] = computeGridCorrelations(mwc_gwtc_s,  mwc_wd);
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_corr_wd\gwtc_S.mat', 'trop_S', 'dry_S', 'mild_S', 'cold_S', 'polar_S', 'high_S', 'tpval_S', 'dpval_S', 'mpval_S', 'cpval_S', 'ppval_S', 'hpval_S','hstrop_S', 'hspval_S', 'med_S', 'medpval_S', 'mwc_S', 'mwcpval_S');
+clear trop_S dry_S mild_S cold_S polar_S high_S tpval_S dpval_S mpval_S cpval_S ppval_S hpval_S hstrop_S hspval_S med_S medpval_S mwc_S mwcpval_S
+
+% 10.  "Warm AMs" 
+[trop_W, tpval_W] = computeGridCorrelations(trop_gwtc_w,  trop_wd); 
+[dry_W, dpval_W] = computeGridCorrelations(dry_gwtc_w,  dry_wd); 
+ [mild_W, mpval_W] = computeGridCorrelations(mild_gwtc_w,  mild_wd); 
+[cold_W, cpval_W] = computeGridCorrelations(cold_gwtc_w,  cold_wd); 
+[polar_W, ppval_W] = computeGridCorrelations(polar_gwtc_w,  polar_wd); 
+[high_W, hpval_W] = computeGridCorrelations(high_gwtc_w,  high_wd);
+[hstrop_W, hspval_W] = computeGridCorrelations(hstrop_gwtc_w,  hstrop_wd); 
+[med_W, medpval_W] = computeGridCorrelations(med_gwtc_w,  med_wd); 
+[mwc_W, mwcpval_W] = computeGridCorrelations(mwc_gwtc_w,  mwc_wd);
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_corr_wd\gwtc_W.mat', 'trop_W', 'dry_W', 'mild_W', 'cold_W', 'polar_W', 'high_W', 'tpval_W', 'dpval_W', 'mpval_W', 'cpval_W', 'ppval_W', 'hpval_W','hstrop_W', 'hspval_W', 'med_W', 'medpval_W', 'mwc_W', 'mwcpval_W');
+clear trop_W dry_W mild_W cold_W polar_W high_W tpval_W dpval_W mpval_W cpval_W ppval_W hpval_W hstrop_W hspval_W med_W medpval_W mwc_W mwcpval_W
+
+ % 11.  "Warm Front Passage AMs" Precipitation totals
+[trop_WFP, tpval_WFP] = computeGridCorrelations(trop_gwtc_wfp,  trop_wd); 
+[dry_WFP, dpval_WFP] = computeGridCorrelations(dry_gwtc_wfp,  dry_wd); 
+ [mild_WFP, mpval_WFP] = computeGridCorrelations(mild_gwtc_wfp,  mild_wd); 
+[cold_WFP, cpval_WFP] = computeGridCorrelations(cold_gwtc_wfp,  cold_wd); 
+[polar_WFP, ppval_WFP] = computeGridCorrelations(polar_gwtc_wfp,  polar_wd); 
+[high_WFP, hpval_WFP] = computeGridCorrelations(high_gwtc_wfp,  high_wd); 
+[hstrop_WFP, hspval_WFP] = computeGridCorrelations(hstrop_gwtc_wfp,  hstrop_wd); 
+[med_WFP, medpval_WFP] = computeGridCorrelations(med_gwtc_wfp,  med_wd); 
+[mwc_WFP, mwcpval_WFP] = computeGridCorrelations(mwc_gwtc_wfp,  mwc_wd);
+save('C:\Users\oobarein\Desktop\Dissertation\Regional output\reg_corr_wd\gwtc_WFP.mat', 'trop_WFP', 'dry_WFP', 'mild_WFP', 'cold_WFP', 'polar_WFP', 'high_WFP', 'tpval_WFP', 'dpval_WFP', 'mpval_WFP', 'cpval_WFP', 'ppval_WFP', 'hpval_WFP','hstrop_WFP', 'hspval_WFP', 'med_WFP', 'medpval_WFP', 'mwc_WFP', 'mwcpval_WFP');
+clear trop_WFP dry_WFP mild_WFP cold_WFP polar_WFP high_WFP tpval_WFP dpval_WFP mpval_WFP cpval_WFP ppval_WFP hpval_WFP hstrop_WFP hspval_WFP med_WFP medpval_WFP mwc_WFP mwcpval_WFP
