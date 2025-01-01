@@ -1,0 +1,47 @@
+Figure 9: (a) Mean percentage of CFP and WFP days in January and July (1979 – 2023). (b) Mean January and July precipitation (1979 - 2023).
+A
+make_it_tight = true;
+subplot = @(m,n,p) subtightplot(m, n, p, [0.005 0.01], [0.1 0.1], [0.01 1]);
+if ~make_it_tight, clear subplot; end
+
+cm = flipud(parula);
+
+subtightplot(2,2,1)
+Mapper(a, lats_wa, lons_wa, 'mask', 'none', 'colors', cm, 'projection', 'eqdcylin', 'contINT', 1,  'subplot',[0 10],'colorbar1',0);
+title('WFP January', 'FontSize', 20);
+
+ subtightplot(2,2,2)
+Mapper(b, lats_wa, lons_wa, 'mask', 'none', 'colors', cm, 'projection', 'eqdcylin', 'contINT', 1, 'subplot',[0 10],'colorbar1',0);
+title('WFP July', 'FontSize', 20);
+
+subtightplot(2,2,3)
+Mapper(c, lats_wa, lons_wa, 'mask', 'none', 'colors', cm, 'projection', 'eqdcylin', 'contINT', 1,  'subplot',[0 10],'colorbar1',0);
+title('CFP January', 'FontSize', 20);
+
+ subtightplot(2,2,4)
+Mapper(d, lats_wa, lons_wa, 'mask', 'none', 'colors', cm, 'projection', 'eqdcylin', 'contINT', 1, 'subplot',[0 10],'colorbar1',1);
+title('CFP July', 'FontSize', 20);
+cb = colorbar('Location', 'southoutside', 'Ticks', [1 2 3 4 5 6 7 8 9 10]);
+cb.FontSize = 14;
+cb.TickLabels = {'1%', '2%', '3%', '4%', '5%', '6%', '7%', '8%', '9%' '10%'};
+
+%%#################################################################################################################################
+B
+make_it_tight = true;
+subplot = @(m,n,p) subtightplot(m, n, p, [0.005 0.01], [0.1 0.1], [0.01 1]);
+if ~make_it_tight, clear subplot; end
+
+cm = flipud(parula);
+
+subtightplot(1,2,1)
+Mapper(jan_pre, lats_wa, lons_wa, 'mask', 'none', 'colors', cm, 'contINT', 50,  'projection', 'eqdcylin', 'subplot',[0 400],'colorbar1',0);
+title('January', 'FontSize', 20);
+
+ subtightplot(1,2,2)
+Mapper(jul_pre, lats_wa, lons_wa, 'mask', 'none', 'colors', cm, 'contINT', 50, 'projection', 'eqdcylin', 'subplot',[0 400],'colorbar1',1);
+title('July', 'FontSize', 20);
+
+cb = colorbar('Location', 'eastoutside', 'Ticks', [0 50 100 150 200 250 300 350 400]);
+cb.Label.String = 'mm';
+cb.FontSize = 14;
+cb.TickLabels = {'0', '50', '100', '150', '200', '250', '300', '350', '400'};
