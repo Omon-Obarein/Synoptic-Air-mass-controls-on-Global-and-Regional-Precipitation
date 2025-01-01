@@ -1,1 +1,112 @@
 
+Figure A1: The distributed variability skill score (VSS) of skill if GWTC-2 clustering of total precipitation.
+
+%% The Distributed Variabiliy Skill Score (VSS)
+vssd = zeros(1, size(m,2));
+etaREAL = zeros(1, size(m,2));
+vssdx = zeros(1, size(m,2));
+etaREALx = zeros(1, size(m,2));
+etaRANDx = zeros(1000, size(m,2));
+parfor i = 1:size(m,2)
+[vssd(1,i), etaREAL(1,i), randeta, vssdx(1,i), etaREALx(1,i), etaRANDx] = VSSeta(new_precip(:,i),m(:,i),1000);
+end
+
+
+
+
+%% THE DVSS ETA FUNCTION
+
+function [vssd,etaREAL,randeta,vssdx,etaREALx,etaRANDx] = VSSeta2(data,cluster,trials)
+% [vssd,etaREAL,randeta,vssdx,etaREALx,etaRANDx] = VSSeta(data,cluster,trials);
+%
+% The Distributed Variabiliy Skill Score (VSS) is a metric to evaluate clustering ability. A higher
+% value vssdist means a better clustering solution. The vssd can be
+% interpreted as the number of times better the actual classification is
+% compared to a random classification with the same number of classes (e.g.
+% if vssdist=5.34, then the actual classification is 5.34 times better than
+% a random classificaiton). THIS specific version uses the
+% *eta-correlation* as the metric for evalating the true and random classifcations. 
+%
+% NOTE: the function will print its progress through the trials.
+%
+% This compares the eta-correations obtained from an actual clustering of the data to that obtained from
+% multiple (equal to trials) randomly-generated classifications. The
+% randomly-generated classifications have two important qualities: 1) they
+% have the same number of clusters as the actual clustering; and 2) each
+% cluster contains the same number of observations as the respective
+% cluster in the actual clustering - i.e., their frequencies are properly
+% distributed
+%
+% NOTE: THIS METHODOLGY IS MODIFIED FROM FROM:
+%  Lee, C.C. (2014): The Development of a Gridded Weather Typing
+%   Classification Scheme. International Journal of Climatology 35, 641-659.
+%   DOI: 10.1002/joc.4010, which explains the regular VSS.
+%        AND
+%  Lee, C.C. (2016) Reanalyzing the impacts of atmospheric teleconnections
+%   on cold-season weather using multivariate surface weather types and
+%   self-organizing maps. International Journal of Climatology. (Accepted,
+%   in press). DOI: 10.1002/joc.4950, which explains VSSdist.
+%
+% INPUTS:
+%   data = data to be analyzed against clustering solution (usually the data the clustering is performed upon
+%   cluster = single column vector (of the same length as rows in data) of true categorical classification 
+%   trials = the number of random classification trials - the more, the better, but
+%       the more time the function will take (trials = 1000 is probably the best).
+%
+% OUTPUTS:
+%   vssd = the distributed VSS (averaged for all columns of data). Interpreted as the number of times better the
+%        true clustering is than ramdom (higher value is better) in partitioning data.
+%   etaREAL =  the eta correlation for the true clustering, averaged across all columns in data
+%        NOTE: Usually more clusters will return a better raw eta-correlation 
+%   randeta = the averaged (across all trials) eta-correlations for each column of data
+%   vssdx = the DVSS for each seperate column in data
+%   etaREALx = the true eta-correlations for each column of data
+%   etaRANDx = the eta-correlation for each trial and each column of data
+
+
+[szdrow,cols]=size(data);
+[szcrow,szcol]=size(cluster);
+
+if szdrow~=szcrow
+    error('Data and cluster must have same number of rows')
+end
+
+if szcol~=1
+    error('Cluster must be a single-column vector of categories')
+end
+
+randclust=randcat(cluster,trials);
+
+etaREALx=NaN(1,cols);
+etaRANDx=NaN(trials,cols);
+vssdx=NaN(1,cols);
+
+for c=1:cols
+    datain=data(:,c);
+    [~,~,~,etaREAL]=sumsqerr(datain,cluster);
+    etaREALx(1,c)=etaREAL;
+
+   % Ensure your MATLAB session has access to the Parallel Computing Toolbox
+if isempty(gcp('nocreate'))
+    parpool; % Opens a parallel pool with the default number of workers
+end
+
+etaRAND=NaN(trials,1);
+
+% Replace the for loop with a parfor loop for parallel execution
+parfor tr=1:trials
+    % Your operation inside the loop remains the same
+    [~,~,~,etaRAND(tr,1)]=sumsqerr(datain,randclust(:,tr));
+end
+
+    randeta=mean(etaRAND,'omitnan');
+    etaRANDx(:,c)=etaRAND;
+    vssdx(1,c)=etaREAL/randeta;
+end
+
+vssd=mean(vssdx,'omitnan');
+
+end
+
+
+
