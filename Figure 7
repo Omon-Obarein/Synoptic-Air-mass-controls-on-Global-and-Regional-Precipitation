@@ -1,0 +1,170 @@
+Figure 7: Relative contribution of GWTC2 air masses to daily precipitation. 
+
+% FREQUENCY OF OCCURRENCE
+freq_c = (mean(gwtc_c, 1))*100;
+freq_cfp = (mean(gwtc_cfp, 1))*100;
+freq_d = (mean(gwtc_d, 1))*100;
+freq_dc = (mean(gwtc_dc, 1))*100;
+freq_dw = (mean(gwtc_dw, 1))*100;
+freq_h = (mean(gwtc_h, 1))*100;
+freq_hc = (mean(gwtc_hc, 1))*100;
+freq_hw = (mean(gwtc_hw, 1))*100;
+freq_s = (mean(gwtc_s, 1))*100;
+freq_w = (mean(gwtc_w, 1))*100;
+freq_wfp = (mean(gwtc_wfp, 1))*100;
+
+% GWTC-2 BINARIES
+  gwtc_hc = int8(gwtcx == 11);
+  gwtc_h = int8(data2 == 12);
+ gwtc_hw = int8(data2 == 13);
+  gwtc_c = int8(data2 == 21);
+  gwtc_s = int8(data2 == 22);
+  gwtc_w = int8(data2 == 23);
+  gwtc_dc = int8(data2 == 31);
+ gwtc_d = int8(data2 == 32);
+  gwtc_dw = int8(data2 == 33);
+  gwtc_cfp = int8(data2 == 72);
+ gwtc_wfp = int8(data2 == 73);
+#######################################################################################################
+% THE RELATIVE CONTRIBUTION FUNCTION
+function relcon = relcont(wd, gwtc_c, freq_c)
+ % Convert inputs to double
+     wd = double(wd);
+    gwtc_c = double(gwtc_c);
+    % freq_c = double(freq_c);    
+
+
+% Calculate the total number of wet days
+    al = sum(wd, 1); 
+
+    % Calculate the number of wet days when gwtc_c air mass occurred
+    b = sum(wd .* gwtc_c, 1); 
+
+    % Calculate the percentage contribution of gwtc_c to wet days
+    per_c = (b ./ al) * 100;
+
+    % Calculate the relative contribution of gwtc_c air mass
+    relcon = per_c ./ freq_c;
+end
+
+
+####################################################################################################################
+load('C:\Users\oobarein\Desktop\Dissertation\cleaned_data\new_data\new_precip.mat')
+relcon_cfp = relcont(new_precip, gwtc_cfp, freq_cfp);
+save('C:\Users\oobarein\Desktop\Dissertation\output\relative_contribution\95th_perc\relcon_cfp.mat', 'relcon_cfp');
+clear relcon_cfp %gwtc_cfp freq_cfp
+
+
+relcon_c = relcont(new_precip, gwtc_c, freq_c);
+save('C:\Users\oobarein\Desktop\Dissertation\output\relative_contribution\95th_perc\relcon_c.mat', 'relcon_c');
+clear relcon_c %gwtc_c freq_c
+
+
+relcon_d = relcont(new_precip, gwtc_d, freq_d);
+save('C:\Users\oobarein\Desktop\Dissertation\output\relative_contribution\95th_perc\relcon_d.mat', 'relcon_d');
+clear relcon_d %gwtc_d freq_d
+
+
+relcon_dc = relcont(new_precip, gwtc_dc, freq_dc);
+save('C:\Users\oobarein\Desktop\Dissertation\output\relative_contribution\95th_perc\relcon_dc.mat', 'relcon_dc');
+clear relcon_dc %gwtc_dc freq_dc
+
+
+relcon_dw = relcont(new_precip, gwtc_dw, freq_dw);
+save('C:\Users\oobarein\Desktop\Dissertation\output\relative_contribution\95th_perc\relcon_dw.mat', 'relcon_dw');
+clear relcon_dw %gwtc_dw freq_dw
+
+
+relcon_h = relcont(new_precip, gwtc_h, freq_h);
+save('C:\Users\oobarein\Desktop\Dissertation\output\relative_contribution\95th_perc\relcon_h.mat', 'relcon_h');
+clear relcon_h %gwtc_h freq_h
+
+
+relcon_hc = relcont(new_precip, gwtc_hc, freq_hc);
+save('C:\Users\oobarein\Desktop\Dissertation\output\relative_contribution\95th_perc\relcon_hc.mat', 'relcon_hc');
+clear relcon_hc %gwtc_hc freq_hc
+
+
+relcon_hw = relcont(new_precip, gwtc_hw, freq_hw);
+save('C:\Users\oobarein\Desktop\Dissertation\output\relative_contribution\95th_perc\relcon_hw.mat', 'relcon_hw');
+clear relcon_hw %gwtc_hw freq_hw
+
+
+relcon_s = relcont(new_precip, gwtc_s, freq_s);
+save('C:\Users\oobarein\Desktop\Dissertation\output\relative_contribution\95th_perc\relcon_s.mat', 'relcon_s');
+clear relcon_s %gwtc_s freq_s
+
+
+relcon_w = relcont(new_precip, gwtc_w, freq_w);
+save('C:\Users\oobarein\Desktop\Dissertation\output\relative_contribution\95th_perc\relcon_w.mat', 'relcon_w');
+clear relcon_w %gwtc_w freq_w
+
+relcon_wfp = relcont(new_precip, gwtc_wfp, freq_wfp);
+save('C:\Users\oobarein\Desktop\Dissertation\output\relative_contribution\95th_perc\relcon_wfp.mat', 'relcon_wfp');
+clear relcon_wfp %gwtc_wfp freq_wfp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+make_it_tight = true;
+subplot = @(m,n,p) subtightplot(m, n, p, [0.005 0.01], [0.1 0.1], [0.01 1]);
+if ~make_it_tight, clear subplot; end
+
+figure
+cm = flipud(pink(14));
+
+
+subtightplot(4,3,1)
+% relcon_hc(relcon_hc < 1) = -1;
+% relcon_hc(relcon_hc >= 1) = 1;
+Mapper(relcon_hc, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 0.5, 'title','HC', 'subplot',[0 7],'colorbar1',0, 'cbarlim', ([1 95]));
+
+ subtightplot(4,3,2)
+Mapper(relcon_h, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 0.5, 'title','H', 'subplot',[0 7],'colorbar1',0, 'cbarlim', ([1 95]));
+
+% subtightplot(4,3,3)
+% Mapper(relcon_hw, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 0.5, 'title','HW', 'subplot',[0 7],'colorbar1',0, 'cbarlim', ([1 95]));
+
+subtightplot(4,3,4)
+Mapper(relcon_c, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 0.5, 'title','C', 'subplot',[0 7],'colorbar1',0, 'cbarlim', ([1 95]));
+
+subtightplot(4,3,5)
+Mapper(relcon_s, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 0.5, 'title','S', 'subplot',[0 7],'colorbar1',0, 'cbarlim', ([1 95]));
+
+% subtightplot(4,3,6)
+% Mapper(relcon_w, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 0.5, 'title','W', 'subplot',[0 7],'colorbar1',0, 'cbarlim', ([1 95]));
+
+subtightplot(4,3,7)
+Mapper(relcon_dc, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 0.5, 'title','DC','subplot',[0 7],'colorbar1',0, 'cbarlim', ([1 95]));
+
+subtightplot(4,3,8)
+Mapper(relcon_d, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 0.5, 'title','D', 'subplot',[0 7],'colorbar1',0, 'cbarlim', ([1 95]));
+
+% subtightplot(4,3,9)
+% Mapper(relcon_dw, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 0.5, 'title','DW', 'subplot',[0 7],'colorbar1',0, 'cbarlim', ([1 95]));
+
+% subtightplot(3,4,10)
+% Mapper(trend(:,10), lats, lons, 'sigmask', sigsb(:,10)','mask', 'none', 'colors', 'greenbrown(11)', 'centerT', 'zero', 'contINT', 0.2, 'subplot',[-0.75 0.75],'colorbar1',0);
+
+subtightplot(4,3,11)
+Mapper(relcon_cfp, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 0.5, 'title','CFP', 'subplot',[0 7],'colorbar1',1, 'cbarlim', ([1 95]));
+
+% subtightplot(4,3,12)
+% Mapper(relcon_wfp, lats, lons, 'mask', 'none', 'colors', cm, 'contINT', 0.5, 'title','WFP', 'subplot',[0 7],'colorbar1',0, 'cbarlim', ([1 95]));
+   cb = colorbar('Location', 'westoutside', 'Ticks', [0.0 0.5 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5 6.0 6.5 7.0]);
+  cb.FontSize = 14;
+ 
+ cb.TickLabels = {'0.0', '0.5', '1.0', '1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0', '5.5', '6.0', '6.5', '7.0+'};
