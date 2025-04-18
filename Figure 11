@@ -1,4 +1,4 @@
-
+Fig 11: Average 3-hourly dew point temperature (oC) and mean sea level pressure (mb) in grid point with the highest frequency of (a) CFP days and (b) WFP days in West Africa (1979 - 2023). 
 
 
 y1 = wfp_dpt1{20,1};
