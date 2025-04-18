@@ -1,4 +1,4 @@
-Figure 8: (a) Average monthly relative humidity and (b) Mean sea level pressure (mb) in January and July for West Africa (1940 – 2024). 
+Figure 9: (a) Average monthly relative humidity and (b) Mean sea level pressure (mb) in January and July for West Africa (1940 – 2024). 
 
 %% RELATIVE HUMIDITY
  a = mean(jan_rh);
