@@ -1,4 +1,4 @@
-Figure 6: Correlation between the monthly frequencies of six GWTC-2 AM subgroups and monthly precipitation. [Cold types = HC, C, & DC; Warm types = HW, W, & DW; Dry types = DC, D, & DW; Humid types = HW, HC, & H; Average types = C, S, & W; Frontal types = CFP & WFP]. Only statistically significant (p ≤ 0.05) grid points are mapped.  
+Figure 5: Correlation between the monthly frequencies of six GWTC-2 AM subgroups and monthly precipitation. [Cold types = HC, C, & DC; Warm types = HW, W, & DW; Dry types = DC, D, & DW; Humid types = HW, HC, & H; Average types = C, S, & W; Frontal types = CFP & WFP]. Only statistically significant (p ≤ 0.05) grid points are mapped.  
 
 make_it_tight = true;
 % h=subtightplot(m,n,p,gap,marg_h,marg_w,varargin)
