@@ -1,4 +1,4 @@
-Figure 9: (a) Mean percentage of CFP and WFP days in January and July (1979 – 2023). (b) Mean January and July precipitation (1979 - 2023).
+Figure 10: (a) Mean percentage of CFP and WFP days in January and July (1979 – 2023). (b) Mean January and July precipitation (1979 - 2023).
 A
 make_it_tight = true;
 subplot = @(m,n,p) subtightplot(m, n, p, [0.005 0.01], [0.1 0.1], [0.01 1]);
