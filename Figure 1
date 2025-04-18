@@ -1,5 +1,5 @@
 
-*Figure 1: (a) Eta Correlation of GWTC-2 Air masses and Total Precipitation (1979 – 2023). Only statistically significant grid points are mapped*
+*Figure 1: Eta Correlation of GWTC-2 Air masses and Total Precipitation (1979 – 2023). Only statistically significant grid points are mapped*
 
 m = gwtcx2; % gwtcx2 is the 11 weather types/ air masses from 1979 to 2023 from the whole global (size = 16436 x 1038240)
 oldValues = [11, 12, 13, 21, 22, 23, 31, 32, 33, 72, 73]; % et
