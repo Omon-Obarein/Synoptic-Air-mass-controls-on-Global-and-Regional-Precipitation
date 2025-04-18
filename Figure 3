@@ -1,4 +1,4 @@
-Figure 4: Correlation between the monthly frequencies of GWTC-2 air masses and monthly precipitation. Only statistically significant (p ≤ 0.05) grid points are mapped.  
+Figure 3: Correlation between the monthly frequencies of GWTC-2 air masses and monthly precipitation. Only statistically significant (p ≤ 0.05) grid points are mapped.  
 
 % This part of calculates the FDR, creating a binary matrix for statistical significance or not. This binary matrix is multiplied by the correlation coefficient so that only the significant grids (ones) are mapped
 [pFDR, sigs_C] = FDR(pval_C,0.05);
