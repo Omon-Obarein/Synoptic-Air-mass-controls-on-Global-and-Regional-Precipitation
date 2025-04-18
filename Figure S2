@@ -178,3 +178,89 @@ mwc_totp = precip_ocean(:, mwc == 1);
  save('C:\Users\oobarein\Desktop\Dissertation\eta_corr_data\region\ocean_tp\reg_totp.mat', 'cold_totp','dry_totp','high_totp','mild_totp', 'polar_totp', 'trop_totp', 'hstrop_totp','med_totp','mwc_totp','-v7.3');
  clear precip cold_totp dry_totp high_totp mild_totp polar_totp trop_totp hstrop_totp med_totp mwc_totp 
  %%
+
+
+
+
+
+##############################################################################################################################################
+############ BOX PLOTS CODE FROM PYTHON#####################
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+
+# LOAD MATFILE INTO PYTHON
+
+import scipy.io
+
+# # Load the .mat file
+mwc = scipy.io.loadmat('D:\\Dissertation\\output\Eta_corr_output\\reg_ocean\\mwc.mat')
+mwc2 = mwc['ratio_mwc']
+
+med = scipy.io.loadmat('D:\\Dissertation\\output\Eta_corr_output\\reg_ocean\\med.mat')
+med2 = med['ratio_med']
+
+hstrop = scipy.io.loadmat('D:\\Dissertation\\output\Eta_corr_output\\reg_ocean\\hstrop.mat')
+hstrop2 = hstrop['ratio_hstrop']
+
+high = scipy.io.loadmat('D:\\Dissertation\\output\Eta_corr_output\\reg_ocean\\high.mat')
+high2 = high['ratio_high']
+
+polar = scipy.io.loadmat('D:\\Dissertation\\output\Eta_corr_output\\reg_ocean\\polar.mat')
+polar2 = polar['ratio_polar']
+
+cold = scipy.io.loadmat('D:\\Dissertation\\output\Eta_corr_output\\reg_ocean\\cold.mat')
+cold2 = cold['ratio_cold']
+
+mild = scipy.io.loadmat('D:\\Dissertation\\output\Eta_corr_output\\reg_ocean\\mild.mat')
+mild2 = mild['ratio_mild']
+
+dry = scipy.io.loadmat('D:\\Dissertation\\output\Eta_corr_output\\reg_ocean\\dry.mat')
+dry2 = dry['ratio_dry']
+
+trop = scipy.io.loadmat('D:\\Dissertation\\output\Eta_corr_output\\reg_ocean\\trop.mat')
+trop2 = trop['ratio_trop']
+
+
+
+# # Creating a list of all data arrays
+all_data = [trop2, dry2, mild2, hstrop2, med2, mwc2, cold2, polar2, high2]
+flattened_data = [arr.flatten() for arr in all_data]
+
+
+
+# Flatten each array and remove NaN values
+flattened_data = [arr.flatten() for arr in all_data]
+flattened_data_no_nan = [arr[~np.isnan(arr)] for arr in flattened_data]
+
+
+# # Creating a figure to hold the boxplot
+fig, ax = plt.subplots(figsize=(10, 6))  # Adjust the figure size as needed
+
+# Define properties for the outlier points
+flierprops = dict(marker='.', color='magenta', markerfacecolor='green', markersize=8, markeredgewidth=2)
+
+# Creating the boxplot with all data arrays, and applying custom styles to the outlier points
+ax.boxplot(flattened_data_no_nan, flierprops=flierprops)
+
+# # Creating the boxplot with all data arrays
+#ax.boxplot(flattened_data)
+
+# Setting titles and labels (optional)
+#ax.set_title('Boxplots of Nine Different Data Sets')
+ax.set_xlabel('Climate Region', fontsize=14)
+ax.set_ylabel('Eta Correlation', fontsize=14)
+
+# Optionally, set custom x-axis labels
+ax.set_xticklabels(['Trop', 'Dry', 'Mild', 'Hstrop', 'Med', 'MWC', 'Cold', 'Polar', 'High'], rotation=45, ha="right", fontsize=13)
+#plt.grid(axis='y', linestyle='--', color='black', linewidth=0.1)
+#plt.grid(axis='x', linestyle='--', color='black', linewidth=0.1)
+# set box plot points
+
+
+################# Save the plot to a specific folder
+output_folder = r'D:\Dissertation\output\Eta_corr_output\reg2'
+output_path = rf'{output_folder}\eta_global_regional.png'
+plt.savefig(output_path, format='png', dpi=1200)
