@@ -1,4 +1,4 @@
-Figure 7: Relative contribution of GWTC2 air masses to daily precipitation. 
+Figure 6: Relative contribution of GWTC2 air masses to daily precipitation. 
 
 % FREQUENCY OF OCCURRENCE
 freq_c = (mean(gwtc_c, 1))*100;
