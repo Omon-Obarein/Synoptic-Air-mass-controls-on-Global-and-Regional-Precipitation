@@ -1,5 +1,5 @@
 
-Figure A3: Re-scaled Relative contribution of GWTC-2 air masses to total precipitation. 
+Figure 8: Re-scaled Relative contribution of GWTC-2 air masses to total precipitation. 
 
 make_it_tight = true;
 subplot = @(m,n,p) subtightplot(m, n, p, [0.005 0.01], [0.1 0.1], [0.01 1]);
